@@ -1,0 +1,213 @@
+/* =========================
+   RESET BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #050505;
+    font-family: 'Segoe UI', sans-serif;
+    color: #e5e5e5;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    width: 100%;
+    background: rgba(5,5,5, 0.95);
+    border-bottom: 2px solid #bfc3c7;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 20px;
+}
+
+.nav-item {
+    color: #8f9499;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    color: #cfd2d6;
+}
+
+/* línea inferior al hover */
+.nav-item::before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #cfd2d6;
+    box-shadow: 0 0 10px #cfd2d6;
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::before {
+    width: 100%;
+}
+
+/* logo central */
+.logo-nav {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #bfc3c7;
+    border-radius: 50%;
+    background: #0e0e0e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-nav img {
+    width: 70%;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.logo-nav img:hover {
+    transform: scale(1.1);
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+.inicio-container {
+    padding-top: 140px; /* espacio para navbar fija */
+    padding-bottom: 80px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* =========================
+   TITULO DE PÁGINA
+========================= */
+.page-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-title h1 {
+    font-size: 2.2rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.page-title p {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: #8f9499;
+}
+
+/* =========================
+   NOVEDADES / ARCHIVO
+========================= */
+.novedades {
+    background: rgba(14,14,14, 0.8);
+    border: 1px solid #cfd2d6;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+/* scroll interno */
+.novedades-scroll {
+    max-height: 450px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-right: 10px;
+}
+
+/* scrollbar */
+.novedades-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.novedades-scroll::-webkit-scrollbar-thumb {
+    background: rgba(207,210,214,0.4);
+    border-radius: 10px;
+}
+
+/* =========================
+   ENTRADA INDIVIDUAL
+========================= */
+.novedad {
+    padding-left: 20px;
+    border-left: 2px solid #cfd2d6;
+}
+
+.novedad-tag {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: #8f9499;
+    text-transform: uppercase;
+}
+
+.novedad h3 {
+    margin-top: 6px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.novedad p {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* media */
+.novedad img,
+.novedad video {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 4px;
+    border: 1px solid rgba(207,210,214,0.2);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    .menu-container {
+        gap: 20px;
+    }
+
+    .page-title h1 {
+        font-size: 1.6rem;
+        letter-spacing: 4px;
+    }
+
+    .novedades {
+        padding: 20px;
+    }
+
+    .novedades-scroll {
+        max-height: 380px;
+    }
+}
