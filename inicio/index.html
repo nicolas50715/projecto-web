@@ -1,95 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>UNIDAD K9 - INICIO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/inicio.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  </head>
 
-<body>
+  <body>
+    <nav class="navbar">
+      <!-- Logo izquierdo -->
+      <div class="nav-left">
+        <a href="../index.html">
+          <img src="DB_LOGO.png" class="logo left-logo">
+        </a>
+      </div>
 
-<nav class="navbar">
+      <!-- CENTRO -->
+      <div class="nav-center">
+        <!-- TITULO -->
+        <div class="brand-text">
+          <span>U</span><span>N</span><span>I</span><span>D</span><span>A</span><span>D</span>
+          <span>&nbsp;</span>
+          <span>K</span><span>9</span>
+        </div>
 
-  <!-- Logo izquierdo -->
-  <div class="nav-left">
-    <a href="../index.html">
-      <img src="DB_LOGO.png" class="logo left-logo">
-    </a>
-  </div>
+        <!-- MENU -->
+        <div class="center-menu">
+          <a class="nav-item word" href="../nosotros/index.html">Nosotros</a>
+          <a class="nav-item word" href="../miembros/index.html">Miembros</a>
+          <a class="nav-item word" href="../academia/index.html">Academia</a>
+          <a class="nav-item word" href="../documentos/index.html">Documentación</a>
+        </div>
+      </div>
 
-  <!-- CENTRO -->
-  <div class="nav-center">
+      <!-- Logo derecho -->
+      <div class="nav-right">
+        <a href="../index.html">
+          <img src="DB_LOGO.png" class="logo">
+        </a>
+      </div>
+    </nav>
 
-    <!-- TITULO -->
-    <div class="brand-text">
-      <span>U</span><span>N</span><span>I</span><span>D</span><span>A</span><span>D</span>
-      <span>&nbsp;</span>
-      <span>K</span><span>9</span>
-    </div>
+    <main class="inicio-container">
+      <section class="page-title">
+        <h1>UNIDAD K9</h1>
+        <p>Novedades y Noticias</p>
+      </section>
 
-    <!-- MENU -->
-    <div class="center-menu">
-      <a class="nav-item word" href="../nosotros/index.html">Nosotros</a>
-      <a class="nav-item word" href="../miembros/index.html">Miembros</a>
-      <a class="nav-item word" href="../academia/index.html">Academia</a>
-      <a class="nav-item word" href="../documentos/index.html">Documentación</a>
-    </div>
+      <section class="novedades">
+        <div class="novedades-scroll">
+          <article class="novedad">
+            <span class="novedad-tag">Video</span>
+            <h3>Entrenamiento urbano</h3>
+            <video controls>
+              <source src="media/entrenamiento.mp4" type="video/mp4">
+            </video>
+            <p>Práctica urbana nocturna con la unidad K-9.</p>
+          </article>
 
-  </div>
+          <article class="novedad">
+            <span class="novedad-tag">Registro</span>
+            <h3>Nuevo ingreso</h3>
+            <p>Se incorpora un nuevo miembro al equipo operativo.</p>
+          </article>
 
-  <!-- Logo derecho -->
-  <div class="nav-right">
-    <a href="../index.html">
-    <img src="DB_LOGO.png" class="logo">
-    </a>
-  </div>
+          <article class="novedad">
+            <span class="novedad-tag">Imagen</span>
+            <h3>Simulación táctica</h3>
+            <img src="media/simulacion.jpg">
+          </article>
 
-</nav>
+          <article class="novedad">
+            <span class="novedad-tag">Imagen</span>
+            <h3>Operativo nocturno</h3>
+            <img src="media/operativo.jpg">
+          </article>
+        </div>
+      </section>
+    </main>
 
-<main class="inicio-container">
-
-<section class="page-title">
-    <h1>UNIDAD K9</h1>
-    <p>Novedades y Noticias</p>
-</section>
-
-<section class="novedades">
-
-<div class="novedades-scroll">
-
-<article class="novedad">
-<span class="novedad-tag">Video</span>
-<h3>Entrenamiento urbano</h3>
-<video controls>
-<source src="media/entrenamiento.mp4" type="video/mp4">
-</video>
-<p>Práctica urbana nocturna con la unidad K-9.</p>
-</article>
-
-<article class="novedad">
-<span class="novedad-tag">Registro</span>
-<h3>Nuevo ingreso</h3>
-<p>Se incorpora un nuevo miembro al equipo operativo.</p>
-</article>
-
-<article class="novedad">
-<span class="novedad-tag">Imagen</span>
-<h3>Simulación táctica</h3>
-<img src="media/simulacion.jpg">
-</article>
-
-<article class="novedad">
-<span class="novedad-tag">Imagen</span>
-<h3>Operativo nocturno</h3>
-<img src="media/operativo.jpg">
-</article>
-
-</div>
-</section>
-</main>
     <!-- JS -->
-<script src="../js/navbar.js"></script>
-</body>
+    <script src="../js/navbar.js"></script>
+  </body>
 </html>
