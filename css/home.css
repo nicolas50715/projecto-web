@@ -1,0 +1,126 @@
+/* ===== LOGO DE FONDO ===== */
+
+body::before{
+content:"";
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:70vw;
+height:70vh;
+background:url("Logo_K9-removebg-preview.png") center no-repeat;
+background-size:contain;
+opacity:.1;
+z-index:-1;
+animation:pulse-logo 8s infinite;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* ===== TARJETA CENTRAL ===== */
+
+.tactical-frame{
+background:rgba(14,14,14,.85);
+border:1px solid #cfd2d6;
+padding:60px;
+text-align:center;
+border-radius:5px;
+box-shadow:0 0 20px rgba(207,210,214,.2);
+max-width:90vw;
+}
+
+/* ===== TITULOS ===== */
+
+.subtitle{
+letter-spacing:4px;
+color:#cfd2d6;
+margin-bottom:10px;
+}
+
+.main-title{
+font-size:4rem;
+letter-spacing:8px;
+border-right:.15em solid #cfd2d6;
+white-space:nowrap;
+overflow:hidden;
+margin:auto;
+animation:
+typing 3.5s steps(30,end),
+blink-caret .5s step-end infinite;
+}
+
+/* ===== DIVIDER ===== */
+
+.divider{
+height:1px;
+background:linear-gradient(90deg,transparent,#cfd2d6,transparent);
+margin:30px 0;
+}
+
+/* ===== VALUES ===== */
+
+.values{
+display:flex;
+justify-content:space-around;
+letter-spacing:2px;
+font-weight:bold;
+color:#8f9499;
+}
+
+.values span{
+opacity:0;
+transform:translateY(20px);
+animation:fadeInUp 1s forwards;
+}
+
+.values span:nth-child(1){animation-delay:3.5s;}
+.values span:nth-child(2){animation-delay:4s;}
+.values span:nth-child(3){animation-delay:4.5s;}
+
+/* ===== BOTON ===== */
+
+.btn-solicitar button{
+background:transparent;
+border:2px solid #cfd2d6;
+color:#cfd2d6;
+padding:15px 30px;
+font-weight:bold;
+letter-spacing:2px;
+cursor:pointer;
+transition:.4s;
+}
+
+.btn-solicitar button:hover{
+background:#cfd2d6;
+color:#050505;
+letter-spacing:4px;
+box-shadow:0 0 15px rgba(207,210,214,.5);
+}
+
+/* ===== ANIMACIONES ===== */
+
+@keyframes pulse-logo{
+0%{transform:translate(-50%,-50%) scale(1);opacity:.1;}
+50%{transform:translate(-50%,-50%) scale(1.05);opacity:.15;}
+100%{transform:translate(-50%,-50%) scale(1);opacity:.1;}
+}
+
+@keyframes typing{
+from{width:0;}
+to{width:100%;}
+}
+
+@keyframes blink-caret{
+50%{border-color:#cfd2d6;}
+}
+
+@keyframes fadeInUp{
+to{opacity:1;transform:translateY(0);}
+}
