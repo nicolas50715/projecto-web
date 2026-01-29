@@ -1,0 +1,306 @@
+.page-content{
+    padding-top: 70px;
+}
+
+/* ===============================
+   HERO
+================================ */
+
+.academy-hero{
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+}
+
+.academy-subtitle{
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.academy-title{
+  font-size: 2rem;
+  letter-spacing: 5px;
+}
+
+.academy-line{
+  width: 100%;
+  max-width: 480px;
+  height: 1px;
+  margin: 2rem auto 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+}
+
+/* ===============================
+   WRAPPER
+================================ */
+
+.academy-wrapper{
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* ===============================
+   BLOQUES
+================================ */
+
+.academy-block{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.22,.61,.36,1);
+}
+
+.academy-block:hover{
+  transform: translateY(-6px) scale(1.01);
+}
+
+.academy-block.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternancia */
+
+.academy-block.reverse .academy-image{
+  grid-column: 1;
+}
+
+.academy-block.reverse .academy-text{
+  grid-column: 2;
+}
+
+/* ===============================
+   TEXTO
+================================ */
+
+.academy-text{
+  display: block;
+}
+
+.academy-text h2{
+  letter-spacing: 4px;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+}
+
+.academy-text h2::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:1px;
+  margin-top:12px;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+}
+
+.academy-text p{
+  opacity: 0.85;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  max-width: 520px;
+}
+
+/* ===============================
+   LISTAS
+================================ */
+
+.academy-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.academy-list.two-columns{
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+}
+
+.academy-list li{
+  position: relative;
+  padding-left: 1.2rem;
+  opacity: 0.85;
+}
+
+.academy-list li::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ===============================
+   IMAGENES
+================================ */
+
+.academy-image{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.academy-image img{
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+
+  box-shadow:
+    0 0 0 rgba(255,255,255,0),
+    0 18px 35px rgba(0,0,0,0.7);
+
+  animation: academyFloat 6s ease-in-out infinite;
+  transition: transform 0.4s ease;
+}
+
+.academy-image img:hover{
+  transform: scale(1.04);
+  box-shadow:
+    0 0 12px rgba(255,255,255,0.35),
+    0 25px 40px rgba(0,0,0,0.8);
+}
+
+
+/* ===============================
+   REQUISITOS
+================================ */
+
+.academy-requirements{
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.academy-requirements.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.academy-requirements h2{
+  letter-spacing: 4px;
+  margin-bottom: 2rem;
+}
+
+/* ===============================
+   CTA
+================================ */
+
+.academy-cta{
+  text-align: center;
+  padding-top: 2rem;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.academy-cta.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.academy-cta h2{
+  letter-spacing: 4px;
+  margin-bottom: 2rem;
+}
+
+.academy-cta-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.academy-btn{
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
+  background: transparent;
+  transition: 0.3s ease;
+}
+
+.academy-btn:hover{
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+}
+
+.academy-btn.secondary{
+  background: transparent;
+}
+
+.academy-btn:hover{
+  background: rgba(255,255,255,0.12) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px){
+
+  .academy-block{
+    grid-template-columns: 1fr;
+  }
+
+  .academy-list.two-columns{
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* ===============================
+   ANIMACION
+================================ */
+
+@keyframes academyFloat{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-8px);
+  }
+}
+
+/* ===============================
+   DIVISORES ENTRE BLOQUES
+================================ */
+
+.academy-block:not(:last-child)::after{
+  content:"";
+  display:block;
+  grid-column: 1 / -1;
+  height:1px;
+  margin-top:4rem;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+}
