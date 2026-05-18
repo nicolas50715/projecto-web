@@ -8,7 +8,7 @@ left:50%;
 transform:translate(-50%,-50%);
 width:70vw;
 height:70vh;
-background:url("Logo_K9-removebg-preview.png") center no-repeat;
+background:url("/img/RTD_Logo.webp") center no-repeat;
 background-size:contain;
 opacity:.1;
 z-index:-1;

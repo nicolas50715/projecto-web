@@ -22,8 +22,10 @@ box-sizing:border-box;
 /* ===== BODY BASE ===== */
 body{
 background:#18211D;
-font-family: 'Bebas Neue', sans-serif;
+font-family:'Bebas Neue',sans-serif;
 color:#E8E8E8;
+position:relative;
+z-index:0;
 }
 
 /* ===== TEXTOS GENERALES ===== */
@@ -57,4 +59,25 @@ background:#e0e0e0;
 *{
 scrollbar-width:thin;
 scrollbar-color:#bfc3c7 #050505;
+}
+
+/* ===== LOGO DE FONDO ===== */
+
+.background-logo{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+
+width:70vw;
+height:70vh;
+
+background:url("../img/RTD_Logo.webp") center no-repeat;
+background-size:contain;
+
+opacity:.1;
+
+z-index:-1;
+
+pointer-events:none;
 }
