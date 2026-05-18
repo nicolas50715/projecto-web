@@ -44,10 +44,10 @@
 ================================ */
 
 .k9-cards {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 220px);
   gap: 3rem;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ===============================
