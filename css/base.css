@@ -21,9 +21,9 @@ box-sizing:border-box;
 
 /* ===== BODY BASE ===== */
 body{
-background:#18211D;
+background:#050505;
 font-family:'Bebas Neue',sans-serif;
-color:#E8E8E8;
+color:#e5e5e5;
 position:relative;
 z-index:0;
 }
