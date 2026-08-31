@@ -1,196 +1,1923 @@
-.page-content{
-    padding-top: 70px;
+/* ============================================================
+   DOCUMENTACIÓN - UNIDAD K9
+   ============================================================ */
+
+
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+
+:root {
+  --k9-gold: #d4a72c;
+  --k9-gold-light: #f0c95a;
+  --k9-gold-dark: #8d6d18;
+
+  --k9-bg: rgba(7, 11, 13, 0.94);
+  --k9-bg-light: rgba(255, 255, 255, 0.035);
+  --k9-bg-hover: rgba(212, 167, 44, 0.08);
+
+  --k9-border: rgba(255, 255, 255, 0.13);
+  --k9-border-gold: rgba(212, 167, 44, 0.45);
+
+  --k9-text: #f1f1f1;
+  --k9-text-soft: rgba(255, 255, 255, 0.72);
+  --k9-text-muted: rgba(255, 255, 255, 0.5);
 }
 
-/* ===============================
-   WRAPPER GENERAL
-================================ */
 
-.docs-wrapper{
-  max-width: 1200px;
-  margin: auto;
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+.page-content {
+  padding-top: 70px;
+  min-height: 100vh;
+}
+
+
+/* ============================================================
+   WRAPPER GENERAL
+   ============================================================ */
+
+.docs-wrapper {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
   padding: 4rem 2rem;
 }
 
-/* ===============================
-   HOME (3 TARJETAS)
-================================ */
 
-.docs-home{
+/* ============================================================
+   HOME
+   ============================================================ */
+
+.docs-home {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-}
 
-.docs-card{
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  padding: 3rem 2rem;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.docs-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.6);
-  border-color: rgba(255,255,255,0.35);
-}
-
-.docs-card h3{
-  letter-spacing: 3px;
-  margin-bottom: 1rem;
-}
-
-.docs-card p{
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* ===============================
-   PANEL ACTIVO
-================================ */
-
-.docs-panel{
-  display: grid;
-  grid-template-columns: 260px 1fr;
   gap: 2rem;
 
-  opacity: 0;
-  transform: translateY(30px);
-  pointer-events: none;
-
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
 
-.docs-panel.active{
+/* ============================================================
+   TARJETAS PRINCIPALES
+   ============================================================ */
+
+.docs-card {
+
+  position: relative;
+
+  min-height: 260px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 3rem 2rem;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 25, 27, 0.95),
+      rgba(5, 8, 9, 0.95)
+    );
+
+  border: 1px solid var(--k9-border);
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* Línea dorada inferior */
+
+.docs-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+
+  height: 2px;
+
+  background: var(--k9-gold);
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform 0.3s ease;
+}
+
+
+.docs-card:hover {
+
+  transform: translateY(-7px);
+
+  border-color: var(--k9-border-gold);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 30, 25, 0.98),
+      rgba(7, 10, 11, 0.98)
+    );
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+
+.docs-card:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* ============================================================
+   ICONO DE TARJETA
+   ============================================================ */
+
+.docs-card-icon {
+
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+
+  font-size: 2rem;
+
+  border-radius: 50%;
+
+  background: rgba(212, 167, 44, 0.08);
+
+  border: 1px solid rgba(212, 167, 44, 0.35);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.docs-card:hover .docs-card-icon {
+
+  transform: scale(1.08);
+
+  background: rgba(212, 167, 44, 0.14);
+}
+
+
+/* ============================================================
+   TEXTO DE TARJETA
+   ============================================================ */
+
+.docs-card h3 {
+
+  margin: 0 0 1rem;
+
+  color: var(--k9-text);
+
+  font-size: 1rem;
+
+  letter-spacing: 3px;
+
+  font-weight: 600;
+}
+
+
+.docs-card p {
+
+  max-width: 340px;
+
+  margin: 0;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.88rem;
+
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   PANEL
+   ============================================================ */
+
+.docs-panel {
+
+  display: grid;
+
+  grid-template-columns: 280px minmax(0, 1fr);
+
+  gap: 1.5rem;
+
+  width: 100%;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+.docs-panel.active {
+
   opacity: 1;
+
   transform: translateY(0);
+
   pointer-events: auto;
 }
 
 
-
-/* ===============================
+/* ============================================================
    SIDEBAR
-================================ */
+   ============================================================ */
 
-.docs-sidebar{
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 10px;
-  padding: 2rem;
+.docs-sidebar {
+
+  position: sticky;
+
+  top: 90px;
+
+  height: calc(100vh - 110px);
+
+  overflow-y: auto;
+
   display: flex;
+
   flex-direction: column;
-  gap: 1rem;
+
+  padding: 1rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 13, 15, 0.98),
+      rgba(4, 7, 8, 0.98)
+    );
+
+  border: 1px solid var(--k9-border);
+
+  border-radius: 8px;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    var(--k9-gold-dark)
+    transparent;
 }
 
-.docs-sidebar button{
-  background: none;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-  padding: 0.8rem;
-  border-radius: 6px;
-  cursor: pointer;
+
+/* ============================================================
+   GRUPOS DEL SIDEBAR
+   ============================================================ */
+
+.sidebar-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.35rem;
+
+  margin-bottom: 1.5rem;
+
+}
+
+
+.sidebar-group + .sidebar-group {
+
+  padding-top: 1.25rem;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+/* ============================================================
+   TÍTULOS SIDEBAR
+   ============================================================ */
+
+.sidebar-title {
+
+  padding: 0.8rem 0.75rem;
+
+  margin-bottom: 0.4rem;
+
+  color: var(--k9-gold);
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
   letter-spacing: 2px;
-  transition: 0.25s ease;
 }
 
-.docs-sidebar button:hover{
-  background: rgba(255,255,255,0.12);
-}
 
-.docs-sidebar button.active{
-  border-left: 3px solid rgba(255,255,255,0.8);
-  background: rgba(255,255,255,0.08);
-}
+/* ============================================================
+   BOTONES SIDEBAR
+   ============================================================ */
 
-/* BOTON CERRAR */
+.docs-sidebar button {
 
-.docs-close{
-  margin-bottom: 1rem;
-  background: rgba(255,255,255,0.08);
-}
+  position: relative;
 
-/* ===============================
-   CONTENIDO
-================================ */
+  width: 100%;
 
-.docs-content{
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  padding: 3rem;
-}
+  min-height: 46px;
 
-/* ===============================
-   SECCIONES
-================================ */
-
-.docs-section{
-  display: none;
-}
-
-.docs-section h2{
-  letter-spacing: 4px;
-  margin-bottom: 2rem;
-}
-
-/* ===============================
-   BLOQUES
-================================ */
-
-.docs-block{
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+
+  grid-template-columns: 30px 30px minmax(0, 1fr);
+
   align-items: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: blockFade 0.5s ease forwards;
+
+  gap: 0.4rem;
+
+  padding: 0.65rem 0.7rem;
+
+  text-align: left;
+
+  color: var(--k9-text-soft);
+
+  background: transparent;
+
+  border: 1px solid transparent;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.5px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.docs-icon{
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
+
+.docs-sidebar button:hover {
+
+  color: #fff;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  border-color:
+    rgba(255, 255, 255, 0.08);
 }
 
-.docs-text h4{
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
+
+.docs-sidebar button.active {
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(212, 167, 44, 0.13),
+      rgba(212, 167, 44, 0.035)
+    );
+
+  border-color:
+    rgba(212, 167, 44, 0.2);
 }
 
-.docs-text p{
-  font-size: 0.9rem;
-  opacity: 0.85;
+
+/* Línea dorada lateral */
+
+.docs-sidebar button.active::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: -1px;
+
+  top: 6px;
+  bottom: 6px;
+
+  width: 3px;
+
+  background: var(--k9-gold);
+
+  border-radius: 0 2px 2px 0;
+}
+
+
+/* ============================================================
+   ELEMENTOS DEL SIDEBAR
+   ============================================================ */
+
+.sidebar-number {
+
+  color: var(--k9-text-muted);
+
+  font-size: 0.7rem;
+
+  font-weight: 600;
+}
+
+
+.docs-sidebar button.active .sidebar-number {
+
+  color: var(--k9-gold-light);
+}
+
+
+.sidebar-icon {
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+}
+
+
+/* ============================================================
+   BOTÓN CERRAR
+   ============================================================ */
+
+.docs-close {
+
+  display: flex !important;
+
+  grid-template-columns: none !important;
+
+  justify-content: flex-start;
+
+  margin-bottom: 0.75rem;
+
+  padding: 0.85rem !important;
+
+  color: var(--k9-gold) !important;
+
+  font-weight: 600;
+
+  letter-spacing: 2px !important;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08) !important;
+
+  border-radius: 0 !important;
+}
+
+
+.docs-close:hover {
+
+  color: var(--k9-gold-light) !important;
+
+  background:
+    rgba(212, 167, 44, 0.06) !important;
+}
+
+
+/* ============================================================
+   CONTENIDO
+   ============================================================ */
+
+.docs-content {
+
+  min-width: 0;
+
+  height: calc(100vh - 110px);
+
+  overflow-y: auto;
+
+  padding: 3rem;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 12, 14, 0.97),
+      rgba(4, 7, 8, 0.97)
+    );
+
+  border: 1px solid var(--k9-border);
+
+  border-radius: 8px;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    var(--k9-gold-dark)
+    transparent;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+.docs-content::-webkit-scrollbar,
+.docs-sidebar::-webkit-scrollbar {
+
+  width: 6px;
+}
+
+
+.docs-content::-webkit-scrollbar-track,
+.docs-sidebar::-webkit-scrollbar-track {
+
+  background: transparent;
+}
+
+
+.docs-content::-webkit-scrollbar-thumb,
+.docs-sidebar::-webkit-scrollbar-thumb {
+
+  background: var(--k9-gold-dark);
+
+  border-radius: 10px;
+}
+
+
+.docs-content::-webkit-scrollbar-thumb:hover,
+.docs-sidebar::-webkit-scrollbar-thumb:hover {
+
+  background: var(--k9-gold);
+}
+
+
+/* ============================================================
+   DOCUMENTOS
+   ============================================================ */
+
+.docs-section {
+
+  display: none;
+
+  animation:
+    documentFade 0.45s ease;
+}
+
+
+.docs-section.active {
+
+  display: block;
+}
+
+
+/* ============================================================
+   SECCIONES DEL MANUAL
+   ============================================================ */
+
+.manual-section {
+
+  scroll-margin-top: 20px;
+
+  margin-bottom: 5rem;
+
+  padding-bottom: 4rem;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+
+.manual-section:last-child {
+
+  margin-bottom: 0;
+
+  border-bottom: none;
+}
+
+
+/* ============================================================
+   CABECERA DE SECCIÓN
+   ============================================================ */
+
+.section-heading {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+
+  padding-bottom: 1rem;
+
+  border-bottom:
+    1px solid
+    rgba(212, 167, 44, 0.45);
+}
+
+
+.section-icon {
+
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.65rem;
+
+  background:
+    rgba(212, 167, 44, 0.08);
+
+  border:
+    1px solid
+    rgba(212, 167, 44, 0.3);
+
+  border-radius: 6px;
+}
+
+
+.section-heading > div {
+
+  display: flex;
+
+  align-items: baseline;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+}
+
+
+.section-number {
+
+  color: var(--k9-gold);
+
+  font-size: 1.05rem;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+.section-heading h2 {
+
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(1.35rem, 2vw, 2rem);
+
+  letter-spacing: 3px;
+
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   CUERPO DE TEXTO
+   ============================================================ */
+
+.section-body {
+
+  max-width: 1000px;
+}
+
+
+.section-body p {
+
+  margin: 0 0 1.25rem;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+}
+
+
+.section-body p:last-child {
+
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   HIGHLIGHT
+   ============================================================ */
+
+.docs-highlight {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1.25rem;
+
+  margin: 2rem 0;
+
+  padding: 1.4rem 1.5rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(212, 167, 44, 0.09),
+      rgba(212, 167, 44, 0.025)
+    );
+
+  border:
+    1px solid
+    rgba(212, 167, 44, 0.35);
+
+  border-left:
+    3px solid
+    var(--k9-gold);
+
+  border-radius: 4px;
+}
+
+
+.highlight-icon {
+
+  font-size: 1.8rem;
+
+  flex-shrink: 0;
+}
+
+
+.docs-highlight p {
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 0.95rem;
+
   line-height: 1.6;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
 
-@media (max-width: 900px){
+/* ============================================================
+   SUBSECCIONES
+   ============================================================ */
 
-  .docs-home{
-    grid-template-columns: 1fr;
+.docs-subsection {
+
+  margin-top: 2.5rem;
+
+  padding: 1.5rem;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 5px;
+}
+
+
+.subsection-title {
+
+  margin-bottom: 1.25rem;
+
+  color: var(--k9-gold-light);
+
+  font-size: 0.85rem;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.docs-subsection p {
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.9rem;
+
+  line-height: 1.75;
+}
+
+
+.docs-subsection ol,
+.docs-subsection ul {
+
+  margin: 1rem 0 0;
+
+  padding-left: 1.4rem;
+
+  color: var(--k9-text-soft);
+}
+
+
+.docs-subsection li {
+
+  margin-bottom: 0.7rem;
+
+  padding-left: 0.3rem;
+
+  font-size: 0.9rem;
+
+  line-height: 1.65;
+}
+
+
+.docs-subsection li::marker {
+
+  color: var(--k9-gold);
+}
+
+
+/* ============================================================
+   GRID DE CARDS
+   ============================================================ */
+
+.docs-grid {
+
+  display: grid;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+
+.docs-grid.three-columns {
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+
+.docs-grid.two-columns {
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+
+/* ============================================================
+   INFO CARDS
+   ============================================================ */
+
+.docs-info-card {
+
+  padding: 1.5rem;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 5px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.docs-info-card:hover {
+
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(212, 167, 44, 0.35);
+
+  background:
+    rgba(212, 167, 44, 0.035);
+}
+
+
+.info-card-icon {
+
+  margin-bottom: 1rem;
+
+  font-size: 1.6rem;
+}
+
+
+.docs-info-card h3 {
+
+  margin: 0 0 1rem;
+
+  color: var(--k9-gold-light);
+
+  font-size: 0.82rem;
+
+  line-height: 1.4;
+
+  letter-spacing: 1px;
+}
+
+
+.docs-info-card p {
+
+  margin: 0 0 0.9rem;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.86rem;
+
+  line-height: 1.65;
+}
+
+
+.docs-info-card p:last-child {
+
+  margin-bottom: 0;
+}
+
+
+.docs-info-card ul {
+
+  margin: 0;
+
+  padding-left: 1.15rem;
+
+  color: var(--k9-text-soft);
+}
+
+
+.docs-info-card li {
+
+  margin-bottom: 0.55rem;
+
+  font-size: 0.82rem;
+
+  line-height: 1.5;
+}
+
+
+.docs-info-card li::marker {
+
+  color: var(--k9-gold);
+}
+
+
+/* ============================================================
+   VEHÍCULOS
+   ============================================================ */
+
+.vehicle-list {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 0.65rem;
+
+  margin-top: 1.5rem;
+}
+
+
+.vehicle-list span {
+
+  padding: 0.75rem;
+
+  text-align: center;
+
+  color: var(--k9-text-soft);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+
+  border-radius: 4px;
+
+  font-size: 0.8rem;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.vehicle-list span:hover {
+
+  color: var(--k9-gold-light);
+
+  border-color:
+    rgba(212, 167, 44, 0.35);
+}
+
+
+/* ============================================================
+   WARNING / RESPONSABILIDAD
+   ============================================================ */
+
+.docs-warning {
+
+  display: flex;
+
+  gap: 1.25rem;
+
+  margin-top: 2rem;
+
+  padding: 1.5rem;
+
+  background:
+    rgba(170, 120, 20, 0.055);
+
+  border:
+    1px solid
+    rgba(212, 167, 44, 0.3);
+
+  border-left:
+    3px solid
+    var(--k9-gold);
+
+  border-radius: 5px;
+}
+
+
+.warning-icon {
+
+  flex-shrink: 0;
+
+  font-size: 1.7rem;
+}
+
+
+.docs-warning h3 {
+
+  margin: 0 0 0.75rem;
+
+  color: var(--k9-gold-light);
+
+  font-size: 0.85rem;
+
+  letter-spacing: 1px;
+}
+
+
+.docs-warning p {
+
+  margin: 0 0 0.75rem;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.88rem;
+
+  line-height: 1.7;
+}
+
+
+.docs-warning p:last-child {
+
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   JERARQUÍA
+   ============================================================ */
+
+.hierarchy-list {
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-top: 1rem;
+}
+
+
+.hierarchy-item {
+
+  display: grid;
+
+  grid-template-columns: 55px minmax(0, 1fr);
+
+  gap: 1rem;
+
+  padding: 1.25rem 0;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.hierarchy-item:last-child {
+
+  border-bottom: none;
+}
+
+
+.hierarchy-icon {
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.35rem;
+
+  background:
+    rgba(212, 167, 44, 0.07);
+
+  border:
+    1px solid
+    rgba(212, 167, 44, 0.25);
+
+  border-radius: 50%;
+}
+
+
+.hierarchy-item h4 {
+
+  margin: 0 0 0.5rem;
+
+  color: var(--k9-gold-light);
+
+  font-size: 0.8rem;
+
+  letter-spacing: 1px;
+}
+
+
+.hierarchy-item p {
+
+  margin: 0 0 0.6rem;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.85rem;
+
+  line-height: 1.65;
+}
+
+
+.hierarchy-item p:last-child {
+
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   ESPECIALIDADES
+   ============================================================ */
+
+.specialty-card {
+
+  position: relative;
+
+  padding: 1.75rem;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.specialty-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: var(--k9-gold);
+
+  transform: scaleY(0);
+
+  transform-origin: bottom;
+
+  transition: transform 0.3s ease;
+}
+
+
+.specialty-card:hover {
+
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(212, 167, 44, 0.35);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+.specialty-card:hover::before {
+
+  transform: scaleY(1);
+}
+
+
+.specialty-icon {
+
+  margin-bottom: 1rem;
+
+  font-size: 1.7rem;
+}
+
+
+.specialty-card h3 {
+
+  margin: 0 0 1rem;
+
+  color: var(--k9-gold-light);
+
+  font-size: 0.85rem;
+
+  line-height: 1.4;
+
+  letter-spacing: 1px;
+}
+
+
+.specialty-card p {
+
+  margin: 0 0 1rem;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.85rem;
+
+  line-height: 1.65;
+}
+
+
+.specialty-card ul {
+
+  margin: 0;
+
+  padding-left: 1.15rem;
+
+  color: var(--k9-text-muted);
+}
+
+
+.specialty-card li {
+
+  margin-bottom: 0.45rem;
+
+  font-size: 0.8rem;
+
+  line-height: 1.5;
+}
+
+
+.specialty-card li::marker {
+
+  color: var(--k9-gold);
+}
+
+
+/* ============================================================
+   STRIKES
+   ============================================================ */
+
+.strike-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin-top: 1.5rem;
+}
+
+
+.strike-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  min-height: 170px;
+
+  padding: 1.5rem;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 6px;
+}
+
+
+.strike-level {
+
+  font-size: 1.8rem;
+}
+
+
+.strike-card strong {
+
+  color: #fff;
+
+  font-size: 0.85rem;
+
+  letter-spacing: 1px;
+}
+
+
+.strike-card span {
+
+  color: var(--k9-gold-light);
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+}
+
+
+.strike-card small {
+
+  color: var(--k9-text-muted);
+
+  font-size: 0.72rem;
+}
+
+
+/* ============================================================
+   TABLA DE PUNTOS
+   ============================================================ */
+
+.points-table {
+
+  margin-top: 1.5rem;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 5px;
+}
+
+
+.points-row {
+
+  display: grid;
+
+  grid-template-columns: 120px minmax(0, 1fr);
+
+  align-items: center;
+
+  min-height: 55px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.points-row:last-child {
+
+  border-bottom: none;
+}
+
+
+.points-row span {
+
+  padding: 0.9rem 1rem;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.84rem;
+}
+
+
+.points-row span:first-child {
+
+  color: var(--k9-gold-light);
+
+  font-weight: 700;
+
+  text-align: center;
+
+  border-right:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+}
+
+
+.points-row.header {
+
+  background:
+    rgba(212, 167, 44, 0.08);
+}
+
+
+.points-row.header span {
+
+  color: var(--k9-gold);
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   EJEMPLO
+   ============================================================ */
+
+.docs-example {
+
+  margin: 1.5rem 0;
+
+  padding: 1.25rem;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border-left:
+    2px solid
+    var(--k9-gold);
+
+  border-radius: 3px;
+}
+
+
+.docs-example strong {
+
+  display: block;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--k9-gold);
+
+  font-size: 0.75rem;
+
+  letter-spacing: 1.5px;
+}
+
+
+.docs-example p {
+
+  margin: 0 0 0.5rem;
+
+  color: var(--k9-text-soft);
+
+  font-size: 0.85rem;
+
+  line-height: 1.6;
+}
+
+
+.docs-example p:last-child {
+
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   DOCUMENTOS VACÍOS
+   ============================================================ */
+
+.empty-document {
+
+  min-height: 500px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 3rem;
+}
+
+
+.empty-document > span {
+
+  margin-bottom: 1.5rem;
+
+  font-size: 3rem;
+}
+
+
+.empty-document h2 {
+
+  margin: 0 0 1rem;
+
+  color: var(--k9-gold);
+
+  letter-spacing: 3px;
+}
+
+
+.empty-document p {
+
+  max-width: 500px;
+
+  margin: 0;
+
+  color: var(--k9-text-muted);
+
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+
+@keyframes documentFade {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
   }
 
-  .docs-panel{
-    grid-template-columns: 1fr;
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
   }
 
 }
 
-@keyframes blockFade{
-  to{
-    opacity: 1;
-    transform: translateY(0);
+
+/* ============================================================
+   RESPONSIVE - TABLET
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+  .docs-wrapper {
+
+    padding:
+      3rem 1.5rem;
   }
+
+
+  .docs-panel {
+
+    grid-template-columns:
+      240px minmax(0, 1fr);
+
+    gap: 1rem;
+  }
+
+
+  .docs-content {
+
+    padding: 2rem;
+  }
+
+
+  .docs-grid.three-columns {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .vehicle-list {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE - MÓVIL
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+  .page-content {
+
+    padding-top: 60px;
+  }
+
+
+  .docs-wrapper {
+
+    padding:
+      2rem 1rem;
+  }
+
+
+  /* HOME */
+
+  .docs-home {
+
+    grid-template-columns:
+      1fr;
+
+    gap: 1rem;
+  }
+
+
+  .docs-card {
+
+    min-height: 210px;
+
+    padding: 2rem 1.5rem;
+  }
+
+
+  /* PANEL */
+
+  .docs-panel {
+
+    grid-template-columns:
+      1fr;
+
+    gap: 1rem;
+  }
+
+
+  /* SIDEBAR */
+
+  .docs-sidebar {
+
+    position: relative;
+
+    top: auto;
+
+    height: auto;
+
+    max-height: none;
+
+    padding: 0.75rem;
+  }
+
+
+  .sidebar-group {
+
+    margin-bottom: 0.5rem;
+  }
+
+
+  /* CONTENIDO */
+
+  .docs-content {
+
+    height: auto;
+
+    max-height: none;
+
+    padding: 1.5rem;
+
+    overflow: visible;
+  }
+
+
+  /* SECCIONES */
+
+  .manual-section {
+
+    margin-bottom: 3.5rem;
+
+    padding-bottom: 3rem;
+  }
+
+
+  .section-heading {
+
+    align-items: flex-start;
+  }
+
+
+  .section-heading h2 {
+
+    font-size: 1.2rem;
+
+    letter-spacing: 2px;
+  }
+
+
+  /* GRIDS */
+
+  .docs-grid.two-columns {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .strike-grid {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .vehicle-list {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  /* PUNTOS */
+
+  .points-row {
+
+    grid-template-columns:
+      80px minmax(0, 1fr);
+  }
+
+
+  /* HIGHLIGHT */
+
+  .docs-highlight {
+
+    align-items: flex-start;
+
+    padding: 1rem;
+  }
+
+
+  /* WARNING */
+
+  .docs-warning {
+
+    align-items: flex-start;
+
+    padding: 1rem;
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE - MÓVIL PEQUEÑO
+   ============================================================ */
+
+@media (max-width: 500px) {
+
+  .docs-content {
+
+    padding: 1.1rem;
+  }
+
+
+  .section-heading {
+
+    gap: 0.7rem;
+  }
+
+
+  .section-icon {
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 1.3rem;
+  }
+
+
+  .section-number {
+
+    font-size: 0.85rem;
+  }
+
+
+  .section-heading h2 {
+
+    font-size: 1.05rem;
+  }
+
+
+  .section-body p,
+  .docs-subsection p {
+
+    font-size: 0.84rem;
+  }
+
+
+  .hierarchy-item {
+
+    grid-template-columns:
+      42px minmax(0, 1fr);
+
+    gap: 0.75rem;
+  }
+
+
+  .hierarchy-icon {
+
+    width: 38px;
+    height: 38px;
+  }
+
+
+  .points-row {
+
+    grid-template-columns:
+      65px minmax(0, 1fr);
+  }
+
+
+  .points-row span {
+
+    padding:
+      0.75rem 0.6rem;
+
+    font-size: 0.76rem;
+  }
+
 }
