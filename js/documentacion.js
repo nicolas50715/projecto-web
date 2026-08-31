@@ -43,13 +43,9 @@ let scrollTimeout = null;
 
 function showDocument(id) {
 
-  // ----------------------------------------------------------
-  // OCULTAR TODOS LOS DOCUMENTOS
-  // ----------------------------------------------------------
-
-  sections.forEach(section => {
-    section.style.display = "none";
-  });
+  if (!id) {
+    return;
+  }
 
 
   // ----------------------------------------------------------
@@ -60,7 +56,9 @@ function showDocument(id) {
 
   if (!activeSection) {
 
-    console.warn(`No existe el documento: ${id}`);
+    console.warn(
+      `No existe ningún documento con id="${id}"`
+    );
 
     return;
 
@@ -68,12 +66,51 @@ function showDocument(id) {
 
 
   // ----------------------------------------------------------
-  // MOSTRAR DOCUMENTO
+  // OCULTAR TODOS LOS DOCUMENTOS
+  // ----------------------------------------------------------
+
+  sections.forEach(section => {
+
+    section.style.display = "none";
+
+  });
+
+
+  // ----------------------------------------------------------
+  // MOSTRAR DOCUMENTO SELECCIONADO
   // ----------------------------------------------------------
 
   activeSection.style.display = "block";
 
   currentDocument = activeSection;
+
+
+  // ----------------------------------------------------------
+  // MOSTRAR PANEL
+  // ----------------------------------------------------------
+
+  if (panel) {
+
+    panel.style.display = "grid";
+
+    requestAnimationFrame(() => {
+
+      panel.classList.add("active");
+
+    });
+
+  }
+
+
+  // ----------------------------------------------------------
+  // OCULTAR HOME
+  // ----------------------------------------------------------
+
+  if (home) {
+
+    home.style.display = "none";
+
+  }
 
 
   // ----------------------------------------------------------
@@ -100,26 +137,31 @@ function showDocument(id) {
 
 
 // ============================================================
-// ACTUALIZAR SIDEBAR SEGÚN DOCUMENTO
+// ACTUALIZAR SIDEBAR
 // ============================================================
 
 function updateSidebarForDocument(id) {
 
+
   // ----------------------------------------------------------
-  // LIMPIAR TODOS LOS ACTIVE
+  // LIMPIAR ACTIVE
   // ----------------------------------------------------------
 
   sidebarShowButtons.forEach(button => {
+
     button.classList.remove("active");
+
   });
 
   sidebarScrollButtons.forEach(button => {
+
     button.classList.remove("active");
+
   });
 
 
   // ----------------------------------------------------------
-  // BOTÓN PRINCIPAL DEL DOCUMENTO
+  // ACTIVAR DOCUMENTO PRINCIPAL
   // ----------------------------------------------------------
 
   const documentButton = document.querySelector(
@@ -127,12 +169,14 @@ function updateSidebarForDocument(id) {
   );
 
   if (documentButton) {
+
     documentButton.classList.add("active");
+
   }
 
 
   // ----------------------------------------------------------
-  // MANUAL
+  // SI ES MANUAL
   // ----------------------------------------------------------
 
   if (id === "manual") {
@@ -142,15 +186,32 @@ function updateSidebarForDocument(id) {
     );
 
     if (firstSectionButton) {
+
       firstSectionButton.classList.add("active");
+
     }
 
   }
 
 
   // ----------------------------------------------------------
-  // REINICIAR SCROLL PROGRAMÁTICO
+  // SI ES PROCEDIMIENTOS
   // ----------------------------------------------------------
+
+  if (id === "procedimientos") {
+
+    const firstProcedureButton = document.querySelector(
+      '.docs-sidebar button[data-scroll="patrullaje"]'
+    );
+
+    if (firstProcedureButton) {
+
+      firstProcedureButton.classList.add("active");
+
+    }
+
+  }
+
 
   isScrollingProgrammatically = false;
 
@@ -158,47 +219,57 @@ function updateSidebarForDocument(id) {
 
 
 // ============================================================
-// ABRIR PANEL DESDE LAS TARJETAS
+// TARJETAS INICIALES
 // ============================================================
 
 cards.forEach(card => {
 
   card.addEventListener("click", () => {
 
-    const target = card.getAttribute("data-target");
+    const target = card.dataset.target;
 
     if (!target) {
+
+      console.warn("La tarjeta no tiene data-target.");
+
       return;
+
+    }
+
+
+    console.log(
+      `Abriendo documento: ${target}`
+    );
+
+
+    showDocument(target);
+
+  });
+
+});
+
+
+// ============================================================
+// CAMBIO ENTRE DOCUMENTOS
+// ============================================================
+
+sidebarShowButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const target = button.dataset.show;
+
+    if (!target) {
+
+      console.warn("El botón no tiene data-show.");
+
+      return;
+
     }
 
 
     // --------------------------------------------------------
-    // OCULTAR HOME
-    // --------------------------------------------------------
-
-    home.style.display = "none";
-
-
-    // --------------------------------------------------------
-    // MOSTRAR PANEL
-    // --------------------------------------------------------
-
-    panel.style.display = "grid";
-
-
-    // --------------------------------------------------------
-    // ACTIVAR ANIMACIÓN
-    // --------------------------------------------------------
-
-    requestAnimationFrame(() => {
-
-      panel.classList.add("active");
-
-    });
-
-
-    // --------------------------------------------------------
-    // MOSTRAR DOCUMENTO
+    // CAMBIAR DOCUMENTO
     // --------------------------------------------------------
 
     showDocument(target);
@@ -216,15 +287,17 @@ sidebarScrollButtons.forEach(button => {
 
   button.addEventListener("click", () => {
 
-    const target = button.getAttribute("data-scroll");
+    const target = button.dataset.scroll;
 
     if (!target || !content || !currentDocument) {
+
       return;
+
     }
 
 
     // --------------------------------------------------------
-    // BUSCAR ELEMENTO DENTRO DEL DOCUMENTO ACTUAL
+    // BUSCAR SECCIÓN DENTRO DEL DOCUMENTO ACTUAL
     // --------------------------------------------------------
 
     const element = currentDocument.querySelector(
@@ -235,7 +308,7 @@ sidebarScrollButtons.forEach(button => {
     if (!element) {
 
       console.warn(
-        `No existe ninguna sección con id="${target}" dentro de "${currentDocument.id}"`
+        `No existe "${target}" dentro del documento "${currentDocument.id}".`
       );
 
       return;
@@ -244,29 +317,36 @@ sidebarScrollButtons.forEach(button => {
 
 
     // --------------------------------------------------------
-    // ACTUALIZAR BOTONES
+    // ACTUALIZAR ACTIVE
     // --------------------------------------------------------
 
     sidebarScrollButtons.forEach(btn => {
+
       btn.classList.remove("active");
+
     });
 
     sidebarShowButtons.forEach(btn => {
+
       btn.classList.remove("active");
+
     });
 
     button.classList.add("active");
 
 
     // --------------------------------------------------------
-    // SCROLL PROGRAMÁTICO
+    // SCROLL
     // --------------------------------------------------------
 
     isScrollingProgrammatically = true;
 
 
-    const contentRect = content.getBoundingClientRect();
-    const elementRect = element.getBoundingClientRect();
+    const contentRect =
+      content.getBoundingClientRect();
+
+    const elementRect =
+      element.getBoundingClientRect();
 
 
     const scrollPosition =
@@ -285,7 +365,7 @@ sidebarScrollButtons.forEach(button => {
 
 
     // --------------------------------------------------------
-    // PERMITIR AUTO-ACTIVE NUEVAMENTE
+    // REACTIVAR AUTO-ACTIVE
     // --------------------------------------------------------
 
     clearTimeout(scrollTimeout);
@@ -302,90 +382,78 @@ sidebarScrollButtons.forEach(button => {
 
 
 // ============================================================
-// CAMBIO ENTRE DOCUMENTOS
-// ============================================================
-
-sidebarShowButtons.forEach(button => {
-
-  button.addEventListener("click", () => {
-
-    const target = button.getAttribute("data-show");
-
-    if (!target) {
-      return;
-    }
-
-
-    // --------------------------------------------------------
-    // CAMBIAR DOCUMENTO
-    // --------------------------------------------------------
-
-    showDocument(target);
-
-  });
-
-});
-
-
-// ============================================================
 // DETECTAR SECCIÓN VISIBLE
 // ============================================================
 
 function updateActiveSection() {
 
-  // ----------------------------------------------------------
-  // SOLO SE EJECUTA SI HAY DOCUMENTO
-  // ----------------------------------------------------------
+  if (
+    !currentDocument ||
+    !content ||
+    isScrollingProgrammatically
+  ) {
 
-  if (!currentDocument || !content || isScrollingProgrammatically) {
     return;
+
   }
 
 
   // ----------------------------------------------------------
-  // BUSCAR SUBSECCIONES DEL DOCUMENTO ACTUAL
+  // BUSCAR SECCIONES INTERNAS
   // ----------------------------------------------------------
 
-  const documentSections =
+  const internalSections =
     currentDocument.querySelectorAll(".manual-section");
 
 
-  // Si el documento no tiene navegación interna,
-  // no hacemos nada.
-  if (!documentSections.length) {
+  if (!internalSections.length) {
+
     return;
+
   }
 
 
   // ----------------------------------------------------------
-  // POSICIONES
+  // CALCULAR SECCIÓN MÁS CERCANA
   // ----------------------------------------------------------
 
-  const contentRect = content.getBoundingClientRect();
+  const contentRect =
+    content.getBoundingClientRect();
 
   let closestSection = null;
+
   let closestDistance = Infinity;
 
 
-  documentSections.forEach(section => {
+  internalSections.forEach(section => {
 
-    const rect = section.getBoundingClientRect();
+    const rect =
+      section.getBoundingClientRect();
+
 
     const distance =
-      Math.abs(rect.top - contentRect.top - 80);
+      Math.abs(
+        rect.top -
+        contentRect.top -
+        80
+      );
 
 
-    // --------------------------------------------------------
-    // LA SECCIÓN YA PASÓ POR LA PARTE SUPERIOR
-    // --------------------------------------------------------
+    if (
+      rect.top <=
+      contentRect.top + 140
+    ) {
 
-    if (rect.top <= contentRect.top + 140) {
+      if (
+        distance <
+        closestDistance
+      ) {
 
-      if (distance < closestDistance) {
+        closestDistance =
+          distance;
 
-        closestDistance = distance;
-
-        closestSection = section;
+        closestSection =
+          section;
 
       }
 
@@ -395,32 +463,38 @@ function updateActiveSection() {
 
 
   // ----------------------------------------------------------
-  // SI NINGUNA LLEGÓ ARRIBA
+  // PRIMERA SECCIÓN
   // ----------------------------------------------------------
 
   if (!closestSection) {
 
-    closestSection = documentSections[0];
+    closestSection =
+      internalSections[0];
 
   }
 
 
   if (!closestSection.id) {
+
     return;
+
   }
 
 
   // ----------------------------------------------------------
-  // BUSCAR BOTÓN CORRESPONDIENTE
+  // BUSCAR BOTÓN
   // ----------------------------------------------------------
 
-  const activeButton = document.querySelector(
-    `.docs-sidebar button[data-scroll="${closestSection.id}"]`
-  );
+  const activeButton =
+    document.querySelector(
+      `.docs-sidebar button[data-scroll="${closestSection.id}"]`
+    );
 
 
   if (!activeButton) {
+
     return;
+
   }
 
 
@@ -434,13 +508,11 @@ function updateActiveSection() {
 
   });
 
-
   sidebarShowButtons.forEach(button => {
 
     button.classList.remove("active");
 
   });
-
 
   activeButton.classList.add("active");
 
@@ -448,7 +520,7 @@ function updateActiveSection() {
 
 
 // ============================================================
-// SCROLL DEL DOCUMENTO
+// SCROLL
 // ============================================================
 
 if (content) {
@@ -456,14 +528,16 @@ if (content) {
   content.addEventListener(
     "scroll",
     updateActiveSection,
-    { passive: true }
+    {
+      passive: true
+    }
   );
 
 }
 
 
 // ============================================================
-// CERRAR PANEL
+// CERRAR DOCUMENTACIÓN
 // ============================================================
 
 if (closeBtn) {
@@ -472,14 +546,14 @@ if (closeBtn) {
 
 
     // --------------------------------------------------------
-    // DESACTIVAR ANIMACIÓN
+    // CERRAR ANIMACIÓN
     // --------------------------------------------------------
 
     panel.classList.remove("active");
 
 
     // --------------------------------------------------------
-    // ESPERAR ANIMACIÓN
+    // VOLVER AL HOME
     // --------------------------------------------------------
 
     setTimeout(() => {
@@ -492,7 +566,7 @@ if (closeBtn) {
 
 
     // --------------------------------------------------------
-    // LIMPIAR ESTADO
+    // LIMPIAR
     // --------------------------------------------------------
 
     sidebarShowButtons.forEach(button => {
@@ -501,13 +575,11 @@ if (closeBtn) {
 
     });
 
-
     sidebarScrollButtons.forEach(button => {
 
       button.classList.remove("active");
 
     });
-
 
     sections.forEach(section => {
 
@@ -515,10 +587,6 @@ if (closeBtn) {
 
     });
 
-
-    // --------------------------------------------------------
-    // REINICIAR ESTADO
-    // --------------------------------------------------------
 
     currentDocument = null;
 
