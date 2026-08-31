@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".docs-content");
 
   const cards = document.querySelectorAll(".docs-card");
-
   const sections = document.querySelectorAll(".docs-section");
 
   const sidebarShowButtons = document.querySelectorAll(
@@ -56,7 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // BUSCAR DOCUMENTO
     // --------------------------------------------------------
 
-    const targetDocument = document.getElementById(id);
+    const targetDocument =
+      document.getElementById(id);
+
 
     if (!targetDocument) {
 
@@ -149,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateSidebar(documentId) {
 
     // --------------------------------------------------------
-    // LIMPIAR TODOS LOS ACTIVE
+    // LIMPIAR ACTIVE
     // --------------------------------------------------------
 
     sidebarShowButtons.forEach(button => {
@@ -166,12 +167,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // --------------------------------------------------------
-    // ACTIVAR BOTÓN DEL DOCUMENTO
+    // ACTIVAR DOCUMENTO
     // --------------------------------------------------------
 
-    const documentButton = document.querySelector(
-      `.docs-sidebar button[data-show="${documentId}"]`
-    );
+    const documentButton =
+      document.querySelector(
+        `.docs-sidebar button[data-show="${documentId}"]`
+      );
+
 
     if (documentButton) {
 
@@ -181,14 +184,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // --------------------------------------------------------
-    // DOCUMENTOS CON NAVEGACIÓN INTERNA
+    // PRIMERA SECCIÓN DEL MANUAL
     // --------------------------------------------------------
 
     if (documentId === "manual") {
 
-      const firstManualButton = document.querySelector(
-        '.docs-sidebar button[data-scroll="introduccion"]'
-      );
+      const firstManualButton =
+        document.querySelector(
+          '.docs-sidebar button[data-scroll="introduccion"]'
+        );
+
 
       if (firstManualButton) {
 
@@ -212,22 +217,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     card.addEventListener("click", () => {
 
-      const target = card.dataset.target;
+      const target =
+        card.dataset.target;
 
-      console.log(
-        "Tarjeta seleccionada:",
-        target
-      );
 
       if (!target) {
 
         console.warn(
-          "Esta tarjeta no posee data-target."
+          "La tarjeta no tiene data-target."
         );
 
         return;
 
       }
+
 
       showDocument(target);
 
@@ -244,16 +247,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.addEventListener("click", () => {
 
-      const target = button.dataset.show;
+      const target =
+        button.dataset.show;
 
-      console.log(
-        "Cambio de documento:",
-        target
-      );
 
       if (!target) {
         return;
       }
+
 
       showDocument(target);
 
@@ -270,32 +271,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     button.addEventListener("click", () => {
 
-      const target = button.dataset.scroll;
+      const target =
+        button.dataset.scroll;
 
-      if (
-        !target ||
-        !content ||
-        !currentDocument
-      ) {
 
+      if (!target) {
         return;
-
       }
 
 
       // ------------------------------------------------------
-      // BUSCAR SOLO DENTRO DEL DOCUMENTO ACTUAL
+      // BUSCAR LA SECCIÓN EN TODOS LOS DOCUMENTOS
       // ------------------------------------------------------
 
-      const element = currentDocument.querySelector(
-        `#${target}`
-      );
+      let targetDocument = null;
+      let targetElement = null;
 
 
-      if (!element) {
+      sections.forEach(section => {
+
+        const element =
+          section.querySelector(
+            `#${target}`
+          );
+
+
+        if (element) {
+
+          targetDocument = section;
+          targetElement = element;
+
+        }
+
+      });
+
+
+      // ------------------------------------------------------
+      // SI NO EXISTE
+      // ------------------------------------------------------
+
+      if (!targetDocument || !targetElement) {
 
         console.warn(
-          `No existe "${target}" dentro de "${currentDocument.id}".`
+          `No se encontró "${target}" en ningún documento.`
         );
 
         return;
@@ -304,68 +322,156 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       // ------------------------------------------------------
-      // ACTUALIZAR ACTIVE
+      // SI ESTAMOS EN OTRO DOCUMENTO
       // ------------------------------------------------------
 
-      sidebarScrollButtons.forEach(btn => {
+      if (
+        !currentDocument ||
+        currentDocument.id !== targetDocument.id
+      ) {
 
-        btn.classList.remove("active");
+        // Guardamos referencia al elemento.
+        const elementId =
+          targetElement.id;
 
-      });
 
-      sidebarShowButtons.forEach(btn => {
+        // Cambiamos de documento.
+        showDocument(
+          targetDocument.id
+        );
 
-        btn.classList.remove("active");
 
-      });
+        // Esperamos a que el DOM
+        // termine de actualizarse.
+        setTimeout(() => {
 
-      button.classList.add("active");
+          const newElement =
+            document.getElementById(
+              elementId
+            );
+
+
+          if (newElement) {
+
+            scrollToInternalSection(
+              newElement,
+              button
+            );
+
+          }
+
+        }, 80);
+
+
+        return;
+
+      }
 
 
       // ------------------------------------------------------
-      // SCROLL
+      // YA ESTAMOS EN EL DOCUMENTO
       // ------------------------------------------------------
 
-      isScrollingProgrammatically = true;
-
-
-      const contentRect =
-        content.getBoundingClientRect();
-
-      const elementRect =
-        element.getBoundingClientRect();
-
-
-      const scrollPosition =
-        content.scrollTop +
-        (elementRect.top - contentRect.top) -
-        20;
-
-
-      content.scrollTo({
-
-        top: scrollPosition,
-
-        behavior: "smooth"
-
-      });
-
-
-      // ------------------------------------------------------
-      // REACTIVAR DETECCIÓN
-      // ------------------------------------------------------
-
-      clearTimeout(scrollTimeout);
-
-      scrollTimeout = setTimeout(() => {
-
-        isScrollingProgrammatically = false;
-
-      }, 700);
+      scrollToInternalSection(
+        targetElement,
+        button
+      );
 
     });
 
   });
+
+
+  // ==========================================================
+  // SCROLL A SECCIÓN INTERNA
+  // ==========================================================
+
+  function scrollToInternalSection(
+    element,
+    button
+  ) {
+
+    if (
+      !content ||
+      !element
+    ) {
+
+      return;
+
+    }
+
+
+    // --------------------------------------------------------
+    // ACTIVE
+    // --------------------------------------------------------
+
+    sidebarScrollButtons.forEach(btn => {
+
+      btn.classList.remove("active");
+
+    });
+
+    sidebarShowButtons.forEach(btn => {
+
+      btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+    // --------------------------------------------------------
+    // SCROLL PROGRAMÁTICO
+    // --------------------------------------------------------
+
+    isScrollingProgrammatically =
+      true;
+
+
+    const contentRect =
+      content.getBoundingClientRect();
+
+    const elementRect =
+      element.getBoundingClientRect();
+
+
+    const scrollPosition =
+      content.scrollTop +
+      (
+        elementRect.top -
+        contentRect.top
+      ) -
+      20;
+
+
+    content.scrollTo({
+
+      top: scrollPosition,
+
+      behavior: "smooth"
+
+    });
+
+
+    // --------------------------------------------------------
+    // REACTIVAR AUTO-ACTIVE
+    // --------------------------------------------------------
+
+    clearTimeout(
+      scrollTimeout
+    );
+
+
+    scrollTimeout =
+      setTimeout(() => {
+
+        isScrollingProgrammatically =
+          false;
+
+      }, 700);
+
+  }
 
 
   // ==========================================================
@@ -395,8 +501,9 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
 
-    // Si este documento no tiene navegación interna,
-    // no hacemos absolutamente nada.
+    // --------------------------------------------------------
+    // DOCUMENTOS SIN SUBSECCIONES
+    // --------------------------------------------------------
 
     if (!internalSections.length) {
 
@@ -418,7 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // --------------------------------------------------------
-    // BUSCAR SECCIÓN MÁS CERCANA
+    // BUSCAR LA MÁS CERCANA
     // --------------------------------------------------------
 
     internalSections.forEach(section => {
@@ -476,7 +583,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // --------------------------------------------------------
-    // BUSCAR BOTÓN
+    // BOTÓN CORRESPONDIENTE
     // --------------------------------------------------------
 
     const activeButton =
@@ -506,6 +613,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+
     activeButton.classList.add("active");
 
   }
@@ -534,68 +642,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (closeBtn) {
 
-    closeBtn.addEventListener("click", () => {
+    closeBtn.addEventListener(
+      "click",
+      () => {
 
-      // ------------------------------------------------------
-      // CERRAR ANIMACIÓN
-      // ------------------------------------------------------
+        // ----------------------------------------------------
+        // CERRAR PANEL
+        // ----------------------------------------------------
 
-      panel.classList.remove("active");
-
-
-      // ------------------------------------------------------
-      // VOLVER AL HOME
-      // ------------------------------------------------------
-
-      setTimeout(() => {
-
-        panel.style.display = "none";
-
-        home.style.display = "grid";
-
-      }, 350);
+        panel.classList.remove(
+          "active"
+        );
 
 
-      // ------------------------------------------------------
-      // OCULTAR DOCUMENTOS
-      // ------------------------------------------------------
+        // ----------------------------------------------------
+        // VOLVER AL HOME
+        // ----------------------------------------------------
 
-      sections.forEach(section => {
+        setTimeout(() => {
 
-        section.style.display = "none";
-        section.classList.remove("active");
+          panel.style.display =
+            "none";
 
-      });
+          home.style.display =
+            "grid";
 
-
-      // ------------------------------------------------------
-      // LIMPIAR ACTIVE
-      // ------------------------------------------------------
-
-      sidebarShowButtons.forEach(button => {
-
-        button.classList.remove("active");
-
-      });
-
-      sidebarScrollButtons.forEach(button => {
-
-        button.classList.remove("active");
-
-      });
+        }, 350);
 
 
-      // ------------------------------------------------------
-      // REINICIAR ESTADO
-      // ------------------------------------------------------
+        // ----------------------------------------------------
+        // LIMPIAR DOCUMENTOS
+        // ----------------------------------------------------
 
-      currentDocument = null;
+        sections.forEach(section => {
 
-      isScrollingProgrammatically = false;
+          section.style.display =
+            "none";
 
-      clearTimeout(scrollTimeout);
+          section.classList.remove(
+            "active"
+          );
 
-    });
+        });
+
+
+        // ----------------------------------------------------
+        // LIMPIAR ACTIVE
+        // ----------------------------------------------------
+
+        sidebarShowButtons.forEach(button => {
+
+          button.classList.remove(
+            "active"
+          );
+
+        });
+
+        sidebarScrollButtons.forEach(button => {
+
+          button.classList.remove(
+            "active"
+          );
+
+        });
+
+
+        // ----------------------------------------------------
+        // REINICIAR ESTADO
+        // ----------------------------------------------------
+
+        currentDocument =
+          null;
+
+        isScrollingProgrammatically =
+          false;
+
+        clearTimeout(
+          scrollTimeout
+        );
+
+      }
+    );
 
   }
 
