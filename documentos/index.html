@@ -1,119 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>UNIDAD K9 - DOCUMENTOS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/documentacion.css">
-  </head>
 
-  <body>
-    <nav class="navbar">
-      <!-- Logo izquierdo -->
-      <div class="nav-left">
-        <a href="../index.html">
-          <img src="../img/DB_LOGO.png" class="logo left-logo">
+<head>
+  <meta charset="UTF-8">
+  <title>UNIDAD K9 - DOCUMENTOS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/documentacion.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+  ========================================================== -->
+
+  <nav class="navbar">
+
+    <!-- Logo izquierdo -->
+    <div class="nav-left">
+      <a href="../index.html">
+        <img src="../img/DB_LOGO.png" class="logo left-logo" alt="Unidad K9">
+      </a>
+    </div>
+
+    <!-- Centro -->
+    <div class="nav-center">
+
+      <div class="brand-text">
+        <span>U</span>
+        <span>N</span>
+        <span>I</span>
+        <span>D</span>
+        <span>A</span>
+        <span>D</span>
+        <span>&nbsp;</span>
+        <span>K</span>
+        <span>9</span>
+      </div>
+
+      <div class="center-menu">
+        <a class="nav-item word" href="../nosotros/index.html">
+          Nosotros
+        </a>
+
+        <a class="nav-item word" href="../miembros/index.html">
+          Miembros
+        </a>
+
+        <a class="nav-item word" href="../academia/index.html">
+          Academia
+        </a>
+
+        <a class="nav-item word active" href="../documentos/index.html">
+          Documentación
         </a>
       </div>
 
-      <!-- CENTRO -->
-      <div class="nav-center">
-        <!-- TITULO -->
-        <div class="brand-text">
-          <span>U</span><span>N</span><span>I</span><span>D</span><span>A</span><span>D</span>
-          <span>&nbsp;</span>
-          <span>K</span><span>9</span>
-        </div>
-
-        <!-- MENU -->
-        <div class="center-menu">
-          <a class="nav-item word" href="../nosotros/index.html">Nosotros</a>
-          <a class="nav-item word" href="../miembros/index.html">Miembros</a>
-          <a class="nav-item word" href="../academia/index.html">Academia</a>
-          <a class="nav-item word" href="../documentos/index.html">Documentación</a>
-        </div>
-      </div>
-
-      <!-- Logo derecho -->
-      <div class="nav-right">
-        <a href="../index.html">
-          <img src="../img/DB_LOGO.png" class="logo">
-        </a>
-      </div>
-    </nav>
-
-    <main class="page-content">
-      <section class="docs-wrapper">
-
-  <!-- ESTADO INICIAL -->
-  <div class="docs-home">
-
-    <div class="docs-card" data-target="manual">
-      <h3>MANUAL DIVISIONAL</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
 
-    <div class="docs-card" data-target="procedimientos">
-      <h3>PROCEDIMIENTOS / PROTOCOLOS</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <!-- Logo derecho -->
+    <div class="nav-right">
+      <a href="../index.html">
+        <img src="../img/DB_LOGO.png" class="logo" alt="Unidad K9">
+      </a>
     </div>
 
-    <div class="docs-card" data-target="uniformidad">
-      <h3>UNIFORMIDAD</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
+  </nav>
 
-  </div>
 
-  <!-- PANEL ACTIVO -->
-  <div class="docs-panel">
+  <!-- =========================================================
+       CONTENIDO PRINCIPAL
+  ========================================================== -->
 
-    <!-- LATERAL -->
-    <aside class="docs-sidebar">
+  <main class="page-content">
 
-      <button class="docs-close">CERRAR</button>
+    <section class="docs-wrapper">
 
-      <button data-show="manual">Manual Divisional</button>
-      <button data-show="procedimientos">Procedimientos</button>
-      <button data-show="uniformidad">Uniformidad</button>
 
-    </aside>
+      <!-- =====================================================
+           INICIO DE DOCUMENTACIÓN
+      ====================================================== -->
 
-    <!-- CONTENIDO -->
-    <div class="docs-content">
+      <div class="docs-home" id="docs-home">
 
-      <!-- MANUAL -->
-      <div class="docs-section" id="manual">
+        <div class="docs-card" data-target="manual">
 
-        <h2>MANUAL DIVISIONAL</h2>
-
-        <div class="docs-block">
-
-          <div class="docs-icon">
-            <!-- ICONO O IMAGEN -->
+          <div class="docs-card-icon">
+            🐾
           </div>
 
-          <div class="docs-text">
-            <h4>Introducción</h4>
+          <div class="docs-card-content">
+            <h3>MANUAL DIVISIONAL</h3>
+
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Normativa, funcionamiento, organización y
+              procedimientos generales de la División K9.
             </p>
           </div>
 
         </div>
 
-        <div class="docs-block">
 
-          <div class="docs-icon"></div>
+        <div class="docs-card" data-target="procedimientos">
 
-          <div class="docs-text">
-            <h4>Estructura</h4>
+          <div class="docs-card-icon">
+            📖
+          </div>
+
+          <div class="docs-card-content">
+            <h3>PROCEDIMIENTOS / PROTOCOLOS</h3>
+
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+              Procedimientos operativos y protocolos
+              específicos de la División K9.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="docs-card" data-target="uniformidad">
+
+          <div class="docs-card-icon">
+            👮
+          </div>
+
+          <div class="docs-card-content">
+            <h3>UNIFORMIDAD</h3>
+
+            <p>
+              Normativa relacionada con uniformes,
+              equipamiento y presentación del personal K9.
             </p>
           </div>
 
@@ -121,59 +141,1645 @@
 
       </div>
 
-      <!-- PROCEDIMIENTOS -->
-      <div class="docs-section" id="procedimientos">
 
-        <h2>PROCEDIMIENTOS / PROTOCOLOS</h2>
 
-        <div class="docs-block">
+      <!-- =====================================================
+           PANEL DE DOCUMENTACIÓN
+      ====================================================== -->
 
-          <div class="docs-icon"></div>
+      <div class="docs-panel" id="docs-panel">
 
-          <div class="docs-text">
-            <h4>Protocolo Operativo</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Duis aute irure dolor in reprehenderit in voluptate.
-            </p>
+
+        <!-- ===================================================
+             SIDEBAR
+        ==================================================== -->
+
+        <aside class="docs-sidebar">
+
+          <!-- Cerrar -->
+          <button class="docs-close">
+            ✕ &nbsp; CERRAR
+          </button>
+
+
+          <!-- ===============================
+               MANUAL
+          ================================ -->
+
+          <div class="sidebar-group">
+
+            <div class="sidebar-title">
+              MANUAL DIVISIONAL
+            </div>
+
+
+            <button
+              class="sidebar-item active"
+              data-scroll="introduccion">
+
+              <span class="sidebar-number">01</span>
+              <span class="sidebar-icon">🐾</span>
+              <span>Introducción</span>
+
+            </button>
+
+
+            <button
+              class="sidebar-item"
+              data-scroll="acceso">
+
+              <span class="sidebar-number">02</span>
+              <span class="sidebar-icon">🗒</span>
+              <span>Acceso a la división</span>
+
+            </button>
+
+
+            <button
+              class="sidebar-item"
+              data-scroll="activacion">
+
+              <span class="sidebar-number">03</span>
+              <span class="sidebar-icon">🔹</span>
+              <span>Activación de la unidad</span>
+
+            </button>
+
+
+            <button
+              class="sidebar-item"
+              data-scroll="funcionamiento">
+
+              <span class="sidebar-number">04</span>
+              <span class="sidebar-icon">📖</span>
+              <span>Funcionamiento</span>
+
+            </button>
+
+
+            <button
+              class="sidebar-item"
+              data-scroll="especialidades">
+
+              <span class="sidebar-number">05</span>
+              <span class="sidebar-icon">🐶</span>
+              <span>Especialidades K9</span>
+
+            </button>
+
+
+            <button
+              class="sidebar-item"
+              data-scroll="strikes">
+
+              <span class="sidebar-number">06</span>
+              <span class="sidebar-icon">🚫</span>
+              <span>Sistema de Strikes</span>
+
+            </button>
+
           </div>
+
+
+
+          <!-- ===============================
+               OTROS DOCUMENTOS
+          ================================ -->
+
+          <div class="sidebar-group other-documents">
+
+            <div class="sidebar-title">
+              OTROS DOCUMENTOS
+            </div>
+
+
+            <button
+              class="sidebar-item"
+              data-show="procedimientos">
+
+              <span class="sidebar-icon">📋</span>
+              <span>Procedimientos / Protocolos</span>
+
+            </button>
+
+
+            <button
+              class="sidebar-item"
+              data-show="uniformidad">
+
+              <span class="sidebar-icon">👮</span>
+              <span>Uniformidad</span>
+
+            </button>
+
+          </div>
+
+        </aside>
+
+
+
+        <!-- ===================================================
+             CONTENIDO
+        ==================================================== -->
+
+        <div class="docs-content">
+
+
+
+          <!-- =================================================
+               MANUAL DIVISIONAL
+          ================================================== -->
+
+          <div class="docs-section active" id="manual">
+
+
+
+            <!-- ===============================================
+                 01 - INTRODUCCIÓN
+            ================================================ -->
+
+            <section
+              class="manual-section"
+              id="introduccion">
+
+              <div class="section-heading">
+
+                <span class="section-icon">
+                  🐾
+                </span>
+
+                <div>
+                  <span class="section-number">
+                    01.
+                  </span>
+
+                  <h2>
+                    INTRODUCCIÓN
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div class="section-body">
+
+                <p>
+                  La División K9 del San Andreas Police Department
+                  (SAPD) constituye una unidad especializada
+                  dedicada al apoyo táctico y operativo mediante
+                  el empleo de binomios compuestos por agentes
+                  policiales y canes adiestrados.
+                </p>
+
+                <p>
+                  Su misión principal es fortalecer la capacidad
+                  de respuesta del Departamento en operaciones
+                  de búsqueda, detección, rescate y control,
+                  actuando siempre bajo los principios de
+                  profesionalismo, disciplina y respeto hacia
+                  la vida humana y animal.
+                </p>
+
+                <p>
+                  La creación de esta división responde a la
+                  necesidad de contar con recursos altamente
+                  entrenados y versátiles que contribuyan al
+                  mantenimiento del orden público, la seguridad
+                  ciudadana y la eficiencia en situaciones
+                  de emergencia.
+                </p>
+
+                <p>
+                  Los perros K9 son seleccionados y preparados
+                  bajo estrictos estándares de comportamiento,
+                  obediencia y especialización, garantizando
+                  su idoneidad para las funciones policiales
+                  que desempeñan.
+                </p>
+
+                <p>
+                  El vínculo entre el guía y su compañero canino
+                  constituye el núcleo operativo de la unidad.
+                  Cada binomio representa la unión de la
+                  confianza, el entrenamiento constante y la
+                  coordinación precisa.
+                </p>
+
+              </div>
+
+
+              <div class="docs-highlight">
+
+                <span class="highlight-icon">
+                  🐾
+                </span>
+
+                <p>
+                  La División K9 no solo actúa como fuerza de
+                  apoyo táctico, sino también como un símbolo
+                  de compromiso, lealtad y servicio hacia
+                  la comunidad.
+                </p>
+
+              </div>
+
+
+              <div class="section-body">
+
+                <p>
+                  Este manual tiene como objetivo establecer
+                  las normas, procedimientos y protocolos que
+                  rigen el funcionamiento de la División K9
+                  del SAPD, asegurando la correcta formación,
+                  desempeño y bienestar tanto del personal
+                  humano como de los canes policiales.
+                </p>
+
+                <p>
+                  Asimismo, busca promover una cultura de
+                  excelencia, ética profesional y cuidado
+                  responsable, en consonancia con los valores
+                  institucionales del Departamento.
+                </p>
+
+                <p>
+                  Su labor se centra, pero no se limita, a la
+                  detección de sustancias ilegales, búsqueda
+                  de personas, control de disturbios y
+                  protección ciudadana.
+                </p>
+
+              </div>
+
+            </section>
+
+
+
+            <!-- ===============================================
+                 02 - ACCESO
+            ================================================ -->
+
+            <section
+              class="manual-section"
+              id="acceso">
+
+              <div class="section-heading">
+
+                <span class="section-icon">
+                  🗒
+                </span>
+
+                <div>
+                  <span class="section-number">
+                    02.
+                  </span>
+
+                  <h2>
+                    ACCESO A LA DIVISIÓN
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div class="section-body">
+
+                <p>
+                  Para acceder a la división se deberá realizar
+                  un formulario previo a la academia para el
+                  acceso a la misma. En dicho formulario se
+                  seleccionará a los agentes que presenten las
+                  cualidades más adecuadas.
+                </p>
+
+              </div>
+
+
+              <div class="docs-grid three-columns">
+
+
+                <!-- REQUISITOS -->
+
+                <article class="docs-info-card">
+
+                  <div class="info-card-icon">
+                    🔹
+                  </div>
+
+                  <h3>
+                    REQUISITOS PARA EL ACCESO
+                  </h3>
+
+                  <ul>
+
+                    <li>
+                      Ostentar el rango de Oficial I /
+                      Deputy Sheriff o superior.
+                    </li>
+
+                    <li>
+                      No tener faltas graves activas
+                      por parte de IAA.
+                    </li>
+
+                    <li>
+                      Comportamiento acorde con los
+                      valores de la división.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+
+                <!-- ACADEMIA -->
+
+                <article class="docs-info-card">
+
+                  <div class="info-card-icon">
+                    📖
+                  </div>
+
+                  <h3>
+                    PROCESO DE ACADEMIA
+                  </h3>
+
+                  <p>
+                    Los agentes seleccionados en el formulario
+                    deberán pasar por un proceso de academia.
+                  </p>
+
+                  <p>
+                    Esta consta de 4 días de clase:
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      3 clases prácticas.
+                    </li>
+
+                    <li>
+                      1 clase teórica.
+                    </li>
+
+                    <li>
+                      Examen paisano.
+                    </li>
+
+                  </ul>
+
+                  <p>
+                    En dicho examen se determinará qué agentes,
+                    junto con su canino, son aptos para formar
+                    parte de la división.
+                  </p>
+
+                </article>
+
+
+
+                <!-- ASPIRANTES -->
+
+                <article class="docs-info-card">
+
+                  <div class="info-card-icon">
+                    🐶
+                  </div>
+
+                  <h3>
+                    MIEMBROS ASPIRANTES
+                  </h3>
+
+                  <p>
+                    Los miembros aspirantes son aquellos que
+                    acaban de acceder a la división y que deben
+                    pasar la academia correspondiente.
+                  </p>
+
+                  <p>
+                    Todo agente que supere dicha academia
+                    pasará a ser considerado miembro oficial K9.
+                  </p>
+
+                </article>
+
+
+              </div>
+
+            </section>
+
+
+
+            <!-- ===============================================
+                 03 - ACTIVACIÓN
+            ================================================ -->
+
+            <section
+              class="manual-section"
+              id="activacion">
+
+              <div class="section-heading">
+
+                <span class="section-icon">
+                  🔹
+                </span>
+
+                <div>
+                  <span class="section-number">
+                    03.
+                  </span>
+
+                  <h2>
+                    ACTIVACIÓN DE LA UNIDAD
+                  </h2>
+                </div>
+
+              </div>
+
+
+
+              <!-- CRITERIOS -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 CRITERIOS DE ACTIVACIÓN
+                </div>
+
+                <p>
+                  La Unidad K9 podrá ser requerida en los
+                  siguientes casos:
+                </p>
+
+                <ol>
+
+                  <li>
+                    Búsqueda y localización de personas
+                    desaparecidas o fugitivas.
+                  </li>
+
+                  <li>
+                    Detección de sustancias estupefacientes,
+                    explosivos u otros materiales ilícitos.
+                  </li>
+
+                  <li>
+                    Apoyo en inspecciones de vehículos,
+                    instalaciones o perímetros.
+                  </li>
+
+                  <li>
+                    Operativos de seguridad en eventos
+                    masivos o de riesgo elevado.
+                  </li>
+
+                  <li>
+                    Control de disturbios o situaciones que
+                    requieran contención táctica.
+                  </li>
+
+                  <li>
+                    Patrullaje preventivo y disuasorio en
+                    zonas asignadas.
+                  </li>
+
+                </ol>
+
+              </div>
+
+
+
+              <!-- PATRULLAJE -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 CONDICIONES DE PATRULLAJE K9
+                </div>
+
+                <p>
+                  Los agentes podrán realizar patrullaje como
+                  Unidad K9 siempre que:
+                </p>
+
+                <ol>
+
+                  <li>
+                    Sean miembros acreditados de la
+                    División K9 del SAPD.
+                  </li>
+
+                  <li>
+                    Cuenten con su binomio operativo
+                    debidamente certificado.
+                  </li>
+
+                  <li>
+                    El can esté en condiciones aptas
+                    para el servicio.
+                  </li>
+
+                  <li>
+                    El agente manifieste voluntariamente
+                    su intención de patrullar como K9 y
+                    lo notifique en el parte correspondiente.
+                  </li>
+
+                </ol>
+
+
+                <p>
+                  El patrullaje K9 tendrá carácter preventivo
+                  y de apoyo operativo, pudiendo realizarse
+                  de forma independiente o en coordinación
+                  con otras divisiones del SAPD.
+                </p>
+
+
+                <p>
+                  Todas las intervenciones deberán ajustarse
+                  a los lineamientos tácticos, legales y
+                  éticos establecidos por el Departamento.
+                </p>
+
+              </div>
+
+
+
+              <!-- VEHÍCULOS -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🚓 VEHÍCULOS OFICIALES
+                </div>
+
+                <p>
+                  Para patrullar se tendrán que utilizar los
+                  vehículos oficiales de la división en color
+                  blanco, utilizando la pegatina indicada y
+                  los asientos destinados a los caninos.
+                </p>
+
+
+                <div class="vehicle-list">
+
+                  <span>Explorer</span>
+                  <span>Taurus</span>
+                  <span>Merit2</span>
+                  <span>Dorado ST Utility</span>
+                  <span>Bison4</span>
+                  <span>Buffalo STX</span>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- RESPONSABILIDAD -->
+
+              <div class="docs-warning">
+
+                <div class="warning-icon">
+                  ⚠️
+                </div>
+
+                <div>
+
+                  <h3>
+                    RESPONSABILIDAD OPERATIVA
+                  </h3>
+
+                  <p>
+                    Durante cualquier despliegue, el guía K9
+                    será plenamente responsable del control,
+                    bienestar y actuación del can bajo su mando.
+                  </p>
+
+                  <p>
+                    Deberá garantizar que el uso del perro
+                    policial se realice únicamente dentro de
+                    los límites de la ley, evitando cualquier
+                    acción que comprometa la seguridad de las
+                    personas o el bienestar del animal.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+            </section>
+
+
+
+            <!-- ===============================================
+                 04 - FUNCIONAMIENTO
+            ================================================ -->
+
+            <section
+              class="manual-section"
+              id="funcionamiento">
+
+              <div class="section-heading">
+
+                <span class="section-icon">
+                  📖
+                </span>
+
+                <div>
+                  <span class="section-number">
+                    04.
+                  </span>
+
+                  <h2>
+                    FUNCIONAMIENTO DE LA DIVISIÓN
+                  </h2>
+                </div>
+
+              </div>
+
+
+
+              <!-- NORMAS -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 NORMAS BÁSICAS
+                </div>
+
+                <ul>
+
+                  <li>
+                    Únicamente pueden utilizar un compañero
+                    canino los miembros de la división.
+                  </li>
+
+                  <li>
+                    Del cuidado y alimentación del perro
+                    se encargará cada agente asignado al mismo.
+                  </li>
+
+                  <li>
+                    No se debe permitir que ninguna persona
+                    aparte del agente acompañante del K9
+                    lo toque o alimente.
+                  </li>
+
+                  <li>
+                    Cada patrulla K9 irá formada por uno o
+                    dos oficiales y por uno o dos caninos.
+                  </li>
+
+                  <li>
+                    La asistencia a las instrucciones es de
+                    carácter obligatorio salvo causa justificada.
+                  </li>
+
+                </ul>
+
+              </div>
+
+
+
+              <!-- JERARQUÍA -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 JERARQUÍA INTERNA
+                </div>
+
+
+                <div class="hierarchy-list">
+
+
+                  <div class="hierarchy-item">
+
+                    <span class="hierarchy-icon">
+                      👑
+                    </span>
+
+                    <div>
+                      <h4>COORDINADORES</h4>
+
+                      <p>
+                        Encargados de indicar las directrices
+                        generales de la unidad, formular los
+                        documentos necesarios para capacitar
+                        a la totalidad de los miembros y
+                        mantener el orden de la unidad.
+                      </p>
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="hierarchy-item">
+
+                    <span class="hierarchy-icon">
+                      📒
+                    </span>
+
+                    <div>
+                      <h4>INSTRUCTORES</h4>
+
+                      <p>
+                        Miembros más capacitados en instrucción
+                        tanto a agentes como a canes. Se
+                        encargan de dar las clases y realizar
+                        las evaluaciones.
+                      </p>
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="hierarchy-item">
+
+                    <span class="hierarchy-icon">
+                      😎
+                    </span>
+
+                    <div>
+                      <h4>OFICIALES K9 EXPERIMENTADOS</h4>
+
+                      <p>
+                        Miembros que llevan tiempo en la
+                        división, son activos y cuentan con
+                        la confianza necesaria para acudir a
+                        avisos de mayor envergadura.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="hierarchy-item">
+
+                    <span class="hierarchy-icon">
+                      👮
+                    </span>
+
+                    <div>
+
+                      <h4>OFICIALES K9</h4>
+
+                      <p>
+                        Oficiales que han superado su periodo
+                        de aspirante y están capacitados para
+                        patrullar junto a los perros.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="hierarchy-item">
+
+                    <span class="hierarchy-icon">
+                      📖
+                    </span>
+
+                    <div>
+
+                      <h4>ASPIRANTES</h4>
+
+                      <p>
+                        Oficiales con motivación para entrar
+                        en la división y que van a pasar por
+                        la academia de la misma.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="hierarchy-item">
+
+                    <span class="hierarchy-icon">
+                      🐶
+                    </span>
+
+                    <div>
+
+                      <h4>CANINOS</h4>
+
+                      <p>
+                        Perros del departamento de policía
+                        entrenados para realizar las funciones
+                        requeridas por la división.
+                      </p>
+
+                      <p>
+                        Los caninos tendrán siempre un rango
+                        por encima del de su oficial, siendo
+                        Teniente I el rango máximo que pueden
+                        alcanzar.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+
+              <!-- ASIGNACIÓN -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 ASIGNACIÓN DE LOS COMPAÑEROS CANINOS
+                </div>
+
+                <p>
+                  La asignación de un K9 a un agente se
+                  efectuará únicamente cuando éste:
+                </p>
+
+                <ol>
+
+                  <li>
+                    Haya completado satisfactoriamente el
+                    curso de formación y certificación de
+                    guía K9.
+                  </li>
+
+                  <li>
+                    Demuestre aptitudes físicas, psicológicas
+                    y profesionales adecuadas para el manejo
+                    de un perro de servicio.
+                  </li>
+
+                  <li>
+                    Mantenga un historial disciplinario y
+                    laboral ejemplar dentro del SAPD.
+                  </li>
+
+                  <li>
+                    Cuente con la autorización expresa del
+                    mando responsable de la División K9.
+                  </li>
+
+                </ol>
+
+                <p>
+                  El proceso de asignación busca garantizar
+                  la compatibilidad y confianza mutua entre
+                  el agente y el can.
+                </p>
+
+              </div>
+
+
+
+              <!-- RETIRADA -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 RETIRADA DE LOS COMPAÑEROS CANINOS
+                </div>
+
+                <p>
+                  La retirada o reasignación de un K9 podrá
+                  producirse por las siguientes causas:
+                </p>
+
+                <ol>
+
+                  <li>
+                    Incapacidad física o psicológica del
+                    animal para continuar en servicio.
+                  </li>
+
+                  <li>
+                    Jubilación por edad o años de servicio
+                    cumplidos.
+                  </li>
+
+                  <li>
+                    Pérdida de aptitud operativa.
+                  </li>
+
+                  <li>
+                    Reasignación interna cuando las
+                    necesidades de la unidad así lo requieran.
+                  </li>
+
+                  <li>
+                    Cese voluntario o forzoso del agente
+                    guía en la División K9.
+                  </li>
+
+                </ol>
+
+              </div>
+
+
+
+              <!-- RESPONSABILIDADES -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 RESPONSABILIDADES DEL GUÍA K9
+                </div>
+
+                <ol>
+
+                  <li>
+                    Cuidado, alimentación, higiene y
+                    bienestar general del can.
+                  </li>
+
+                  <li>
+                    Mantenimiento del entrenamiento según
+                    el plan establecido.
+                  </li>
+
+                  <li>
+                    Registro diario de actividades,
+                    intervenciones y estado del animal.
+                  </li>
+
+                  <li>
+                    Garantizar un entorno adecuado tanto
+                    en servicio como fuera de él.
+                  </li>
+
+                  <li>
+                    En caso de sacar al K9 fuera de servicio,
+                    será obligatorio retirarle todo el
+                    equipamiento policial.
+                  </li>
+
+                </ol>
+
+              </div>
+
+
+            </section>
+
+
+
+            <!-- ===============================================
+                 05 - ESPECIALIDADES
+            ================================================ -->
+
+            <section
+              class="manual-section"
+              id="especialidades">
+
+              <div class="section-heading">
+
+                <span class="section-icon">
+                  🐶
+                </span>
+
+                <div>
+
+                  <span class="section-number">
+                    05.
+                  </span>
+
+                  <h2>
+                    ESPECIALIDADES DE LOS K9
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="docs-grid two-columns">
+
+
+
+                <!-- SUSTANCIAS -->
+
+                <article class="specialty-card">
+
+                  <div class="specialty-icon">
+                    🔹
+                  </div>
+
+                  <h3>
+                    DETECCIÓN DE SUSTANCIAS
+                  </h3>
+
+                  <p>
+                    Entrenados para localizar sustancias
+                    estupefacientes, armas, dinero en efectivo
+                    u otros materiales ilícitos.
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      Trabajan bajo señal pasiva o activa.
+                    </li>
+
+                    <li>
+                      Pueden utilizarse en distintos
+                      entornos.
+                    </li>
+
+                    <li>
+                      Mantienen entrenamiento continuo.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+
+                <!-- EXPLOSIVOS -->
+
+                <article class="specialty-card">
+
+                  <div class="specialty-icon">
+                    💥
+                  </div>
+
+                  <h3>
+                    DETECCIÓN DE EXPLOSIVOS
+                  </h3>
+
+                  <p>
+                    Especializados en la detección de
+                    explosivos, pólvoras y componentes
+                    químicos peligrosos.
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      Identificación de múltiples olores.
+                    </li>
+
+                    <li>
+                      Intervención bajo máxima cautela.
+                    </li>
+
+                    <li>
+                      Coordinación con unidades especializadas.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+
+                <!-- RASTREO -->
+
+                <article class="specialty-card">
+
+                  <div class="specialty-icon">
+                    🐾
+                  </div>
+
+                  <h3>
+                    RASTREO Y BÚSQUEDA
+                  </h3>
+
+                  <p>
+                    Capaces de seguir el rastro de personas
+                    desaparecidas, sospechosos en fuga o
+                    víctimas de desastres.
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      Olor de referencia o búsqueda libre.
+                    </li>
+
+                    <li>
+                      Áreas urbanas y rurales.
+                    </li>
+
+                    <li>
+                      Labores humanitarias y de rescate.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+
+                <!-- INTERVENCIÓN -->
+
+                <article class="specialty-card">
+
+                  <div class="specialty-icon">
+                    🛡️
+                  </div>
+
+                  <h3>
+                    INTERVENCIÓN Y CONTENCIÓN
+                  </h3>
+
+                  <p>
+                    Entrenados en técnicas de protección,
+                    detención y control de sospechosos.
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      Neutralización controlada.
+                    </li>
+
+                    <li>
+                      Activación bajo orden directa.
+                    </li>
+
+                    <li>
+                      Agentes debidamente certificados.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+
+                <!-- RESCATE -->
+
+                <article class="specialty-card">
+
+                  <div class="specialty-icon">
+                    🚑
+                  </div>
+
+                  <h3>
+                    RESCATE Y LOCALIZACIÓN
+                  </h3>
+
+                  <p>
+                    Destinados a la búsqueda de personas
+                    atrapadas o extraviadas.
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      Desastres naturales y accidentes.
+                    </li>
+
+                    <li>
+                      Operaciones entre escombros.
+                    </li>
+
+                    <li>
+                      Colaboración con cuerpos de emergencia.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+
+                <!-- PATRULLAJE -->
+
+                <article class="specialty-card">
+
+                  <div class="specialty-icon">
+                    🚓
+                  </div>
+
+                  <h3>
+                    PATRULLAJE Y PREVENCIÓN
+                  </h3>
+
+                  <p>
+                    Perros polivalentes utilizados para
+                    reforzar la presencia policial y
+                    disuadir el delito.
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      Recorridos rutinarios.
+                    </li>
+
+                    <li>
+                      Eventos públicos.
+                    </li>
+
+                    <li>
+                      Prevención y vigilancia.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+
+                <!-- RELACIONES PÚBLICAS -->
+
+                <article class="specialty-card">
+
+                  <div class="specialty-icon">
+                    🤝
+                  </div>
+
+                  <h3>
+                    DEMOSTRACIÓN Y RELACIONES PÚBLICAS
+                  </h3>
+
+                  <p>
+                    Adiestrados para exhibiciones,
+                    demostraciones y actividades educativas
+                    con la comunidad.
+                  </p>
+
+                  <ul>
+
+                    <li>
+                      Representación de la División K9.
+                    </li>
+
+                    <li>
+                      Educación ciudadana.
+                    </li>
+
+                    <li>
+                      Temperamento estable y controlado.
+                    </li>
+
+                  </ul>
+
+                </article>
+
+
+              </div>
+
+            </section>
+
+
+
+            <!-- ===============================================
+                 06 - STRIKES
+            ================================================ -->
+
+            <section
+              class="manual-section"
+              id="strikes">
+
+              <div class="section-heading">
+
+                <span class="section-icon">
+                  🚫
+                </span>
+
+                <div>
+
+                  <span class="section-number">
+                    06.
+                  </span>
+
+                  <h2>
+                    SISTEMA DE STRIKES
+                  </h2>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- PRINCIPIOS -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 PRINCIPIOS BÁSICOS
+                </div>
+
+                <p>
+                  Cada integrante recibe un “Carnet” con
+                  10 puntos al acceder a la división.
+                </p>
+
+              </div>
+
+
+
+              <!-- TIPOS -->
+
+              <div class="strike-grid">
+
+                <div class="strike-card">
+
+                  <span class="strike-level">
+                    🟢
+                  </span>
+
+                  <strong>
+                    LEVE
+                  </strong>
+
+                  <span>
+                    1 PUNTO
+                  </span>
+
+                  <small>
+                    Caducidad: 7 días
+                  </small>
+
+                </div>
+
+
+                <div class="strike-card">
+
+                  <span class="strike-level">
+                    🟠
+                  </span>
+
+                  <strong>
+                    MEDIA
+                  </strong>
+
+                  <span>
+                    2 PUNTOS
+                  </span>
+
+                  <small>
+                    Caducidad: 15 días
+                  </small>
+
+                </div>
+
+
+                <div class="strike-card">
+
+                  <span class="strike-level">
+                    🔴
+                  </span>
+
+                  <strong>
+                    GRAVE
+                  </strong>
+
+                  <span>
+                    3 PUNTOS
+                  </span>
+
+                  <small>
+                    Caducidad: 30 días
+                  </small>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- CONSECUENCIAS -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 CONSECUENCIAS SEGÚN PUNTOS RESTANTES
+                </div>
+
+
+                <div class="points-table">
+
+                  <div class="points-row header">
+                    <span>PUNTOS</span>
+                    <span>ESTADO</span>
+                  </div>
+
+
+                  <div class="points-row">
+                    <span>8–10</span>
+                    <span>
+                      Buen estado — sin medidas.
+                    </span>
+                  </div>
+
+
+                  <div class="points-row">
+                    <span>6–7</span>
+                    <span>
+                      Observación formal — registro y
+                      charla correctiva.
+                    </span>
+                  </div>
+
+
+                  <div class="points-row">
+                    <span>4–5</span>
+                    <span>
+                      Probation operativa — obligación
+                      de curso de refuerzo.
+                    </span>
+                  </div>
+
+
+                  <div class="points-row">
+                    <span>1–3</span>
+                    <span>
+                      Suspensión temporal y revisión
+                      del puesto + curso obligatorio.
+                    </span>
+                  </div>
+
+
+                  <div class="points-row">
+                    <span>0</span>
+                    <span>
+                      Suspensión inmediata de la división.
+                    </span>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- REGLA IMPORTANTE -->
+
+              <div class="docs-warning strike-warning">
+
+                <div class="warning-icon">
+                  🚫
+                </div>
+
+                <div>
+
+                  <h3>
+                    FALTAS GRAVES ACUMULADAS
+                  </h3>
+
+                  <p>
+                    Independientemente de los puntos,
+                    3 faltas graves acumuladas activarán
+                    el proceso de expulsión de la división.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+
+              <!-- REINTEGRO -->
+
+              <div class="docs-subsection">
+
+                <div class="subsection-title">
+                  🔹 BORRADO AUTOMÁTICO Y REINTEGRO
+                </div>
+
+                <p>
+                  Cuando una anotación llega a su fecha de
+                  eliminación automática, los puntos
+                  descontados se recuperan automáticamente
+                  y se anota en el Carnet la fecha de
+                  recuperación.
+                </p>
+
+
+                <div class="docs-example">
+
+                  <strong>
+                    EJEMPLO
+                  </strong>
+
+                  <p>
+                    Falta grave el 01/06/2025 →
+                    fecha de eliminación 01/07/2025.
+                  </p>
+
+                  <p>
+                    El 01/07/2025 esos 3 puntos se suman
+                    nuevamente al total.
+                  </p>
+
+                </div>
+
+
+                <p>
+                  Si entre la fecha de la falta y su
+                  eliminación el empleado comete una nueva
+                  falta, ambas se cuentan por separado y
+                  cada una caducará según su propio calendario.
+                </p>
+
+              </div>
+
+
+            </section>
+
+
+          </div>
+
+
+
+          <!-- =================================================
+               PROCEDIMIENTOS
+          ================================================== -->
+
+          <div
+            class="docs-section"
+            id="procedimientos">
+
+            <div class="empty-document">
+
+              <span>
+                📋
+              </span>
+
+              <h2>
+                PROCEDIMIENTOS / PROTOCOLOS
+              </h2>
+
+              <p>
+                Esta sección será completada con los
+                procedimientos y protocolos oficiales
+                de la División K9.
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- =================================================
+               UNIFORMIDAD
+          ================================================== -->
+
+          <div
+            class="docs-section"
+            id="uniformidad">
+
+            <div class="empty-document">
+
+              <span>
+                👮
+              </span>
+
+              <h2>
+                UNIFORMIDAD
+              </h2>
+
+              <p>
+                Esta sección será completada con la
+                normativa de uniformidad y equipamiento
+                de la División K9.
+              </p>
+
+            </div>
+
+          </div>
+
 
         </div>
 
       </div>
 
-      <!-- UNIFORMIDAD -->
-      <div class="docs-section" id="uniformidad">
+    </section>
 
-        <h2>UNIFORMIDAD</h2>
+  </main>
 
-        <div class="docs-block">
 
-          <div class="docs-icon"></div>
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
 
-          <div class="docs-text">
-            <h4>Uniforme Operativo</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Excepteur sint occaecat cupidatat non proident.
-            </p>
-          </div>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/documentacion.js"></script>
 
-        </div>
+</body>
 
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-    </main>
-
-    <!-- JS -->
-    <script src="../js/navbar.js"></script>
-    <script src="../js/documentacion.js"></script>
-
-  </body>
 </html>
