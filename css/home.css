@@ -15,6 +15,7 @@ z-index:-1;
 animation:pulse-logo 8s infinite;
 }
 
+
 /* ===== HERO ===== */
 
 .hero{
@@ -24,30 +25,32 @@ justify-content:center;
 align-items:center;
 }
 
+
 /* ===== TARJETA CENTRAL ===== */
 
 .tactical-frame{
 background:rgba(14,14,14,.85);
-border:1px solid #cfd2d6;
+border:1px solid #8d6d18;
 padding:60px;
 text-align:center;
 border-radius:5px;
-box-shadow:0 0 20px rgba(207,210,214,.2);
+box-shadow:0 0 20px rgba(212,167,44,.2);
 max-width:90vw;
 }
+
 
 /* ===== TITULOS ===== */
 
 .subtitle{
 letter-spacing:4px;
-color:#cfd2d6;
+color:#f0c95a;
 margin-bottom:10px;
 }
 
 .main-title{
 font-size:4rem;
 letter-spacing:8px;
-border-right:.15em solid #cfd2d6;
+border-right:.15em solid #d4a72c;
 white-space:nowrap;
 overflow:hidden;
 margin:auto;
@@ -56,13 +59,20 @@ typing 3.5s steps(30,end),
 blink-caret .5s step-end infinite;
 }
 
+
 /* ===== DIVIDER ===== */
 
 .divider{
 height:1px;
-background:linear-gradient(90deg,transparent,#cfd2d6,transparent);
+background:linear-gradient(
+  90deg,
+  transparent,
+  #d4a72c,
+  transparent
+);
 margin:30px 0;
 }
+
 
 /* ===== VALUES ===== */
 
@@ -71,7 +81,7 @@ display:flex;
 justify-content:space-around;
 letter-spacing:2px;
 font-weight:bold;
-color:#8f9499;
+color:#f1f1f1;
 }
 
 .values span{
@@ -84,12 +94,13 @@ animation:fadeInUp 1s forwards;
 .values span:nth-child(2){animation-delay:4s;}
 .values span:nth-child(3){animation-delay:4.5s;}
 
+
 /* ===== BOTON ===== */
 
 .btn-solicitar button{
 background:transparent;
-border:2px solid #cfd2d6;
-color:#cfd2d6;
+border:2px solid #d4a72c;
+color:#f0c95a;
 padding:15px 30px;
 font-weight:bold;
 letter-spacing:2px;
@@ -98,18 +109,30 @@ transition:.4s;
 }
 
 .btn-solicitar button:hover{
-background:#cfd2d6;
+background:#d4a72c;
 color:#050505;
 letter-spacing:4px;
-box-shadow:0 0 15px rgba(207,210,214,.5);
+box-shadow:0 0 15px rgba(212,167,44,.5);
 }
+
 
 /* ===== ANIMACIONES ===== */
 
 @keyframes pulse-logo{
-0%{transform:translate(-50%,-50%) scale(1);opacity:.1;}
-50%{transform:translate(-50%,-50%) scale(1.05);opacity:.15;}
-100%{transform:translate(-50%,-50%) scale(1);opacity:.1;}
+0%{
+transform:translate(-50%,-50%) scale(1);
+opacity:.1;
+}
+
+50%{
+transform:translate(-50%,-50%) scale(1.05);
+opacity:.15;
+}
+
+100%{
+transform:translate(-50%,-50%) scale(1);
+opacity:.1;
+}
 }
 
 @keyframes typing{
@@ -118,9 +141,12 @@ to{width:100%;}
 }
 
 @keyframes blink-caret{
-50%{border-color:#cfd2d6;}
+50%{border-color:#f0c95a;}
 }
 
 @keyframes fadeInUp{
-to{opacity:1;transform:translateY(0);}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
