@@ -31,10 +31,11 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255,255,255,0.35),
+    rgba(212,167,44,0.45),
     transparent
   );
 }
+
 
 /* ===============================
    WRAPPER
@@ -48,6 +49,7 @@
   flex-direction: column;
   gap: 6rem;
 }
+
 
 /* ===============================
    BLOQUES
@@ -73,6 +75,7 @@
   transform: translateY(0);
 }
 
+
 /* Alternancia */
 
 .academy-block.reverse .academy-image{
@@ -82,6 +85,7 @@
 .academy-block.reverse .academy-text{
   grid-column: 2;
 }
+
 
 /* ===============================
    TEXTO
@@ -105,7 +109,7 @@
   margin-top:12px;
   background: linear-gradient(
     to right,
-    rgba(255,255,255,0.7),
+    #d4a72c,
     transparent
   );
 }
@@ -116,6 +120,7 @@
   font-size: 0.95rem;
   max-width: 520px;
 }
+
 
 /* ===============================
    LISTAS
@@ -144,8 +149,9 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: rgba(255,255,255,0.8);
+  color: #d4a72c;
 }
+
 
 /* ===============================
    IMAGENES
@@ -160,10 +166,10 @@
 .academy-image img{
   width: 100%;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1px solid rgba(212,167,44,0.35);
 
   box-shadow:
-    0 0 0 rgba(255,255,255,0),
+    0 0 0 rgba(212,167,44,0),
     0 18px 35px rgba(0,0,0,0.7);
 
   animation: academyFloat 6s ease-in-out infinite;
@@ -173,7 +179,7 @@
 .academy-image img:hover{
   transform: scale(1.04);
   box-shadow:
-    0 0 12px rgba(255,255,255,0.35),
+    0 0 12px rgba(212,167,44,0.22),
     0 25px 40px rgba(0,0,0,0.8);
 }
 
@@ -201,6 +207,7 @@
   letter-spacing: 4px;
   margin-bottom: 2rem;
 }
+
 
 /* ===============================
    CTA
@@ -237,14 +244,16 @@
   padding: 0.9rem 2rem;
   border-radius: 8px;
   letter-spacing: 2px;
-  border: 1px solid rgba(255,255,255,0.35);
-  color: #fff;
+  border: 1px solid rgba(212,167,44,0.45);
+  color: #f1f1f1;
   background: transparent;
   transition: 0.3s ease;
 }
 
 .academy-btn:hover{
-  background: rgba(255,255,255,0.12);
+  background: rgba(212,167,44,0.13);
+  border-color: #d4a72c;
+  color: #f0c95a;
   transform: translateY(-3px);
 }
 
@@ -252,10 +261,6 @@
   background: transparent;
 }
 
-.academy-btn:hover{
-  background: rgba(255,255,255,0.12) !important;
-  transform: translateY(-3px) !important;
-}
 
 /* ===============================
    RESPONSIVE
@@ -273,6 +278,7 @@
 
 }
 
+
 /* ===============================
    ANIMACION
 ================================ */
@@ -281,10 +287,12 @@
   0%,100%{
     transform: translateY(0);
   }
+
   50%{
     transform: translateY(-8px);
   }
 }
+
 
 /* ===============================
    DIVISORES ENTRE BLOQUES
@@ -300,7 +308,7 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255,255,255,0.25),
+    rgba(212,167,44,0.25),
     transparent
   );
 }
