@@ -1,3 +1,4 @@
+```javascript
 // ============================================================
 // DOCUMENTACIÓN - UNIDAD K9
 // ============================================================
@@ -42,16 +43,33 @@ let scrollTimeout = null;
 
 function showDocument(id) {
 
+  // ----------------------------------------------------------
+  // OCULTAR TODOS LOS DOCUMENTOS
+  // ----------------------------------------------------------
+
   sections.forEach(section => {
     section.style.display = "none";
   });
 
+
+  // ----------------------------------------------------------
+  // BUSCAR DOCUMENTO
+  // ----------------------------------------------------------
+
   const activeSection = document.getElementById(id);
 
   if (!activeSection) {
+
     console.warn(`No existe el documento: ${id}`);
+
     return;
+
   }
+
+
+  // ----------------------------------------------------------
+  // MOSTRAR DOCUMENTO
+  // ----------------------------------------------------------
 
   activeSection.style.display = "block";
 
@@ -87,6 +105,10 @@ function showDocument(id) {
 
 function updateSidebarForDocument(id) {
 
+  // ----------------------------------------------------------
+  // LIMPIAR TODOS LOS ACTIVE
+  // ----------------------------------------------------------
+
   sidebarShowButtons.forEach(button => {
     button.classList.remove("active");
   });
@@ -94,6 +116,19 @@ function updateSidebarForDocument(id) {
   sidebarScrollButtons.forEach(button => {
     button.classList.remove("active");
   });
+
+
+  // ----------------------------------------------------------
+  // BOTÓN PRINCIPAL DEL DOCUMENTO
+  // ----------------------------------------------------------
+
+  const documentButton = document.querySelector(
+    `.docs-sidebar button[data-show="${id}"]`
+  );
+
+  if (documentButton) {
+    documentButton.classList.add("active");
+  }
 
 
   // ----------------------------------------------------------
@@ -110,21 +145,14 @@ function updateSidebarForDocument(id) {
       firstSectionButton.classList.add("active");
     }
 
-    return;
   }
 
 
   // ----------------------------------------------------------
-  // OTROS DOCUMENTOS
+  // REINICIAR SCROLL PROGRAMÁTICO
   // ----------------------------------------------------------
 
-  const documentButton = document.querySelector(
-    `.docs-sidebar button[data-show="${id}"]`
-  );
-
-  if (documentButton) {
-    documentButton.classList.add("active");
-  }
+  isScrollingProgrammatically = false;
 
 }
 
@@ -158,7 +186,10 @@ cards.forEach(card => {
     panel.style.display = "grid";
 
 
-    // Esperamos un frame para que CSS pueda animar
+    // --------------------------------------------------------
+    // ACTIVAR ANIMACIÓN
+    // --------------------------------------------------------
+
     requestAnimationFrame(() => {
 
       panel.classList.add("active");
@@ -187,20 +218,28 @@ sidebarScrollButtons.forEach(button => {
 
     const target = button.getAttribute("data-scroll");
 
-    if (!target || !content) {
+    if (!target || !content || !currentDocument) {
       return;
     }
 
 
-    const element = document.getElementById(target);
+    // --------------------------------------------------------
+    // BUSCAR ELEMENTO DENTRO DEL DOCUMENTO ACTUAL
+    // --------------------------------------------------------
+
+    const element = currentDocument.querySelector(
+      `#${target}`
+    );
+
 
     if (!element) {
 
       console.warn(
-        `No existe ninguna sección con id="${target}"`
+        `No existe ninguna sección con id="${target}" dentro de "${currentDocument.id}"`
       );
 
       return;
+
     }
 
 
@@ -220,7 +259,7 @@ sidebarScrollButtons.forEach(button => {
 
 
     // --------------------------------------------------------
-    // SCROLL PRECISO DENTRO DEL CONTENEDOR
+    // SCROLL PROGRAMÁTICO
     // --------------------------------------------------------
 
     isScrollingProgrammatically = true;
@@ -246,7 +285,7 @@ sidebarScrollButtons.forEach(button => {
 
 
     // --------------------------------------------------------
-    // PERMITIR NUEVAMENTE EL AUTO-ACTIVE
+    // PERMITIR AUTO-ACTIVE NUEVAMENTE
     // --------------------------------------------------------
 
     clearTimeout(scrollTimeout);
@@ -278,36 +317,10 @@ sidebarShowButtons.forEach(button => {
 
 
     // --------------------------------------------------------
-    // MOSTRAR DOCUMENTO
+    // CAMBIAR DOCUMENTO
     // --------------------------------------------------------
 
     showDocument(target);
-
-
-    // --------------------------------------------------------
-    // SI ES MANUAL
-    // --------------------------------------------------------
-
-    if (target === "manual") {
-
-      sidebarShowButtons.forEach(btn => {
-        btn.classList.remove("active");
-      });
-
-      sidebarScrollButtons.forEach(btn => {
-        btn.classList.remove("active");
-      });
-
-
-      const firstButton = document.querySelector(
-        '.docs-sidebar button[data-scroll="introduccion"]'
-      );
-
-      if (firstButton) {
-        firstButton.classList.add("active");
-      }
-
-    }
 
   });
 
@@ -320,28 +333,41 @@ sidebarShowButtons.forEach(button => {
 
 function updateActiveSection() {
 
-  if (!currentDocument || isScrollingProgrammatically) {
+  // ----------------------------------------------------------
+  // SOLO SE EJECUTA SI HAY DOCUMENTO
+  // ----------------------------------------------------------
+
+  if (!currentDocument || !content || isScrollingProgrammatically) {
     return;
   }
 
 
-  const manualSections =
+  // ----------------------------------------------------------
+  // BUSCAR SUBSECCIONES DEL DOCUMENTO ACTUAL
+  // ----------------------------------------------------------
+
+  const documentSections =
     currentDocument.querySelectorAll(".manual-section");
 
 
-  if (!manualSections.length) {
+  // Si el documento no tiene navegación interna,
+  // no hacemos nada.
+  if (!documentSections.length) {
     return;
   }
 
+
+  // ----------------------------------------------------------
+  // POSICIONES
+  // ----------------------------------------------------------
 
   const contentRect = content.getBoundingClientRect();
 
   let closestSection = null;
-
   let closestDistance = Infinity;
 
 
-  manualSections.forEach(section => {
+  documentSections.forEach(section => {
 
     const rect = section.getBoundingClientRect();
 
@@ -349,7 +375,10 @@ function updateActiveSection() {
       Math.abs(rect.top - contentRect.top - 80);
 
 
-    // La sección ya pasó por la parte superior
+    // --------------------------------------------------------
+    // LA SECCIÓN YA PASÓ POR LA PARTE SUPERIOR
+    // --------------------------------------------------------
+
     if (rect.top <= contentRect.top + 140) {
 
       if (distance < closestDistance) {
@@ -365,11 +394,13 @@ function updateActiveSection() {
   });
 
 
-  // Si ninguna sección llegó todavía arriba,
-  // seleccionamos la primera
+  // ----------------------------------------------------------
+  // SI NINGUNA LLEGÓ ARRIBA
+  // ----------------------------------------------------------
+
   if (!closestSection) {
 
-    closestSection = manualSections[0];
+    closestSection = documentSections[0];
 
   }
 
@@ -380,7 +411,7 @@ function updateActiveSection() {
 
 
   // ----------------------------------------------------------
-  // BUSCAR BOTÓN
+  // BUSCAR BOTÓN CORRESPONDIENTE
   // ----------------------------------------------------------
 
   const activeButton = document.querySelector(
@@ -485,8 +516,17 @@ if (closeBtn) {
     });
 
 
+    // --------------------------------------------------------
+    // REINICIAR ESTADO
+    // --------------------------------------------------------
+
     currentDocument = null;
+
+    isScrollingProgrammatically = false;
+
+    clearTimeout(scrollTimeout);
 
   });
 
 }
+```
