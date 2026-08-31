@@ -15,6 +15,7 @@
   margin-bottom: 2rem;
 }
 
+
 /* ===============================
    TÍTULO + LÍNEA
 ================================ */
@@ -34,10 +35,11 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255,255,255,0.35),
+    rgba(212,167,44,0.45),
     transparent
   );
 }
+
 
 /* ===============================
    GRID DE TARJETAS
@@ -50,6 +52,7 @@
   justify-content: center;
 }
 
+
 /* ===============================
    TARJETA
 ================================ */
@@ -60,7 +63,7 @@
   height: 300px;
   overflow: hidden;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(212,167,44,0.35);
   box-shadow:
     0 12px 28px rgba(0, 0, 0, 0.55),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
@@ -72,8 +75,10 @@
 
 .k9-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.65);
-  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 16px 32px rgba(0,0,0,0.65),
+    0 0 18px rgba(212,167,44,0.12);
+  border-color: #d4a72c;
 }
 
 .k9-card img {
@@ -86,6 +91,7 @@
 .k9-card:hover img {
   filter: blur(4px);
 }
+
 
 /* ===============================
    OVERLAY (HOVER)
@@ -107,6 +113,7 @@
   opacity: 1;
 }
 
+
 /* ===============================
    ROL SUPERIOR
 ================================ */
@@ -116,8 +123,10 @@
   font-size: 0.85rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  opacity: 0.85;
+  color: #f0c95a;
+  opacity: 0.9;
 }
+
 
 /* ===============================
    INFO INFERIOR
@@ -135,7 +144,8 @@
 .k9-rank {
   display: block;
   font-size: 0.75rem;
-  opacity: 0.8;
+  color: #d4a72c;
+  opacity: 0.9;
   line-height: 1.1;
 }
 
